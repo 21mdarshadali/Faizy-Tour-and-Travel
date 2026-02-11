@@ -1,0 +1,4853 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAIZY TOURS &amp; TRAVELS - Hajj &amp; Umrah Packages</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            box-sizing: border-box;
+        }
+
+        /* ============= TOP HEADER ============= */
+        .top-header {
+            background: linear-gradient(135deg, #1a5d3a 0%, #0d3a22 100%);
+            padding: 4px 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            box-shadow: none;
+            height: auto;
+        }
+
+        .header-left {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .header-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .header-item i {
+            color: #d4a574;
+            font-size: 1rem;
+        }
+
+        .header-item:hover {
+            color: #d4a574;
+            transform: translateY(-2px);
+        }
+
+        .header-item a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .header-item a:hover {
+            color: #d4a574;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .live-clock-header {
+            background: transparent;
+            border-radius: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            min-width: 100px;
+        }
+
+        .clock-time-header {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #d4a574;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 1px;
+        }
+
+        .clock-ampm-header {
+            font-size: 0.7rem;
+            color: #d4a574;
+            font-weight: 600;
+        }
+
+        .language-selector {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(212, 165, 116, 0.5);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .language-selector:hover {
+            background: rgba(212, 165, 116, 0.2);
+            border-color: #d4a574;
+        }
+
+        .language-selector option {
+            background: #1a5d3a;
+            color: white;
+        }
+
+        /* ============= RESPONSIVE ============= */
+        @media (max-width: 768px) {
+            .top-header {
+                padding: 0.8rem 1rem;
+                gap: 0.8rem;
+            }
+
+            .header-left {
+                gap: 1rem;
+            }
+
+            .header-item {
+                font-size: 0.8rem;
+            }
+
+            .language-selector {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.75rem;
+            }
+        }
+
+        /* ============= PRAYER TIMING BAR ============= */
+        .prayer-bar {
+            background: linear-gradient(90deg, #0d3a22 0%, #1a5d3a 50%, #0d3a22 100%);
+            padding: 5px 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .prayer-top-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            width: 100%;
+            ;
+        }
+
+        .prayer-status {
+            color: #d4a574;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            white-space: nowrap;
+            flex: 0 0 auto;
+        }
+
+        .prayer-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0rem;
+        }
+
+        .prayer-next {
+            font-size: 0.8rem;
+            white-space: nowrap;
+        }
+
+        .prayer-date-location {
+            font-size: 0.7rem;
+            color: white;
+            font-weight: 500;
+            text-align: left;
+            flex: 0 0 auto;
+            white-space: nowrap;
+        }
+
+        .prayer-times-container {
+            display: flex;
+            gap: 0.8rem;
+            align-items: center;
+            flex-wrap: nowrap;
+            justify-content: center;
+            flex: 1;
+        }
+
+        .prayer-item {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 0.3rem;
+            color: white;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            padding: 0.4rem 0.6rem;
+            border-radius: 12px;
+            background: rgba(212, 165, 116, 0.05);
+            border: 1px solid rgba(212, 165, 116, 0.15);
+        }
+
+        .prayer-item.next {
+            /* background: rgba(212, 165, 116, 0.25); */
+            border: 1.5px solid #d4a574;
+            transform: scale(1.08);
+            box-shadow: 0 4px 12px rgba(212, 165, 116, 0.2);
+
+        }
+
+        .prayer-name {
+            font-size: 0.75rem;
+            font-weight: 700;
+            opacity: 0.9;
+            letter-spacing: 0.5px;
+            color: black;
+        }
+
+        .prayer-time {
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.2rem;
+            color: #d4a574;
+        }
+
+        .prayer-time i {
+            font-size: 0.65rem;
+            opacity: 0.7;
+        }
+
+        .prayer-item.next .prayer-name {
+            color: #d4a574;
+            font-weight: 800;
+        }
+
+        .prayer-item.next .prayer-time {
+            color: #fff;
+            font-size: 0.95rem;
+        }
+
+        /* ============= RESPONSIVE ============= */
+        @media (max-width: 768px) {
+            .prayer-bar {
+                padding: 0.6rem 1rem;
+                gap: 1rem;
+            }
+
+            .prayer-times-container {
+                gap: 0.8rem;
+            }
+
+            .prayer-item {
+                font-size: 0.75rem;
+            }
+
+            .prayer-time {
+                font-size: 0.8rem;
+            }
+
+            .prayer-status {
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .prayer-bar {
+                padding: 0.5rem 0.8rem;
+                gap: 0.8rem;
+                min-height: 45px;
+            }
+
+            .prayer-times-container {
+                gap: 0.6rem;
+            }
+
+            .prayer-item {
+                font-size: 0.7rem;
+            }
+
+            .prayer-time {
+                font-size: 0.75rem;
+            }
+
+            .prayer-name {
+                font-size: 0.65rem;
+            }
+
+            .prayer-status {
+                font-size: 0.75rem;
+            }
+
+            .prayer-item.next {
+                padding: 0.3rem 0.6rem;
+                border-radius: 10px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .top-header {
+                flex-direction: column;
+                padding: 0.6rem;
+                gap: 0.6rem;
+            }
+
+            .header-left {
+                width: 100%;
+                justify-content: center;
+                gap: 0.8rem;
+                flex-wrap: wrap;
+            }
+
+            .header-right {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .header-item {
+                font-size: 0.75rem;
+            }
+
+            .language-selector {
+                padding: 0.4rem 0.6rem;
+                font-size: 0.7rem;
+            }
+        }
+
+        /* ============= STICKY NAVBAR ============= */
+        .sticky-navbar {
+            position: sticky;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #121111 0%, #0d3a22 100%);
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            width: 100%;
+        }
+
+        .navbar-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+        }
+
+        .navbar-section.left {
+            justify-content: flex-start;
+        }
+
+        .navbar-section.center {
+            justify-content: center;
+        }
+
+        .navbar-section.right {
+            justify-content: flex-end;
+        }
+
+        .navbar-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        .navbar-logo i {
+            color: #d4a574;
+            font-size: 1.5rem;
+        }
+
+        .navbar-menu {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .navbar-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .navbar-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #d4a574;
+            transition: width 0.3s ease;
+        }
+
+        .navbar-menu a:hover {
+            color: #d4a574;
+        }
+
+        .navbar-menu a:hover::after {
+            width: 100%;
+        }
+
+        .navbar-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-shrink: 0;
+            flex: 0 0 auto;
+        }
+
+        .navbar-btn {
+            padding: 0.4rem 1rem;
+            border: none;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            text-decoration: none;
+            height: fit-content;
+        }
+
+        .navbar-btn-call {
+            background: transparent;
+            border: 1.5px solid #d4a574;
+            color: #d4a574;
+        }
+
+        .navbar-btn-call:hover {
+            background: #d4a574;
+            color: #0d3a22;
+        }
+
+        .navbar-btn-book {
+            background: #d4a574;
+            color: #0d3a22;
+        }
+
+        .navbar-btn-book:hover {
+            background: #e8b86d;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(212, 165, 116, 0.4);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 0.4rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
+        }
+
+        /* Mobile Menu Dropdown */
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: #0d3a22;
+            flex-direction: column;
+            gap: 0;
+            padding: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        .mobile-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 0.8rem 1rem;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .mobile-menu a:hover {
+            background: rgba(212, 165, 116, 0.1);
+            color: #d4a574;
+        }
+
+        /* ============= RESPONSIVE ============= */
+        @media (max-width: 768px) {
+            .sticky-navbar {
+                padding: 0.8rem 1rem;
+                gap: 1rem;
+            }
+
+            .navbar-logo {
+                font-size: 1rem;
+            }
+
+            .navbar-logo i {
+                font-size: 1.2rem;
+            }
+
+            .navbar-menu {
+                display: none;
+            }
+
+            .navbar-actions {
+                gap: 0.5rem;
+            }
+
+            .navbar-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .mobile-menu {
+                position: fixed;
+                top: 56px;
+                left: 0;
+                right: 0;
+                background: #0d3a22;
+                max-height: 400px;
+                overflow-y: auto;
+                z-index: 999;
+            }
+
+            .mobile-menu a {
+                padding: 1rem;
+                border-bottom: 1px solid rgba(212, 165, 116, 0.1);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sticky-navbar {
+                padding: 0.6rem 0.8rem;
+                gap: 0.8rem;
+            }
+
+            .navbar-logo {
+                font-size: 0.95rem;
+            }
+
+            .navbar-logo i {
+                font-size: 1rem;
+            }
+
+            .navbar-btn {
+                padding: 0.5rem 0.8rem;
+                font-size: 0.75rem;
+            }
+
+            .navbar-btn span {
+                display: none;
+            }
+
+            .navbar-actions {
+                gap: 0.3rem;
+            }
+        }
+
+        /* ============= HERO BANNER ============= */
+        .hero-banner {
+            position: relative;
+            height: 650px;
+            background: linear-gradient(135deg, #0f4c2f 0%, #051f18 50%, #0a3620 100%);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 0;
+        }
+
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                /* Arabic star pattern */
+                radial-gradient(circle, rgba(212, 165, 116, 0.08) 1px, transparent 1px),
+                radial-gradient(circle, rgba(212, 165, 116, 0.05) 1px, transparent 1px),
+                /* Geometric diamonds */
+                repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(212, 165, 116, 0.04) 35px, rgba(212, 165, 116, 0.04) 70px),
+                repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(212, 165, 116, 0.04) 35px, rgba(212, 165, 116, 0.04) 70px),
+                /* Hexagon grid */
+                repeating-linear-gradient(0deg, transparent, transparent 30px, rgba(212, 165, 116, 0.02) 30px, rgba(212, 165, 116, 0.02) 60px),
+                repeating-linear-gradient(60deg, transparent, transparent 30px, rgba(212, 165, 116, 0.02) 30px, rgba(212, 165, 116, 0.02) 60px),
+                repeating-linear-gradient(120deg, transparent, transparent 30px, rgba(212, 165, 116, 0.02) 30px, rgba(212, 165, 116, 0.02) 60px),
+                /* Radial glow */
+                radial-gradient(circle at 20% 50%, rgba(212, 165, 116, 0.06) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(212, 165, 116, 0.04) 0%, transparent 50%);
+            background-size:
+                100px 100px,
+                150px 150px,
+                70px 70px,
+                70px 70px,
+                60px 60px,
+                60px 60px,
+                60px 60px,
+                100% 100%,
+                100% 100%;
+            background-position:
+                0 0,
+                20px 20px,
+                0 0,
+                0 0,
+                0 0,
+                0 0,
+                0 0,
+                0 0,
+                0 0;
+            z-index: 0;
+        }
+
+        .hero-banner::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(15, 76, 47, 0.7) 0%, rgba(10, 54, 32, 0.85) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            max-width: 900px;
+            padding: 2rem;
+            animation: slideInUp 1s ease-out;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: #d4a574;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            animation: slideInUp 1s ease-out 0.1s backwards;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            animation: slideInUp 1s ease-out 0.2s backwards;
+        }
+
+        .hero-title span {
+            color: #d4a574;
+            display: block;
+            margin-top: 0.5rem;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            line-height: 1.6;
+            animation: slideInUp 1s ease-out 0.3s backwards;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: slideInUp 1s ease-out 0.4s backwards;
+        }
+
+        .hero-btn {
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-btn-primary {
+            background: linear-gradient(135deg, #d4a574 0%, #e8b86d 100%);
+            color: #0d3a22;
+            box-shadow: 0 8px 20px rgba(212, 165, 116, 0.3);
+        }
+
+        .hero-btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(212, 165, 116, 0.5);
+        }
+
+        .hero-btn-primary:active {
+            transform: translateY(-1px);
+        }
+
+        .hero-btn-secondary {
+            background: transparent;
+            border: 2.5px solid #d4a574;
+            color: #d4a574;
+            box-shadow: inset 0 0 20px rgba(212, 165, 116, 0.1);
+        }
+
+        .hero-btn-secondary:hover {
+            background: rgba(212, 165, 116, 0.15);
+            transform: translateY(-3px);
+            box-shadow: inset 0 0 20px rgba(212, 165, 116, 0.2), 0 8px 20px rgba(212, 165, 116, 0.3);
+        }
+
+        .hero-btn-secondary:active {
+            transform: translateY(-1px);
+        }
+
+        .hero-btn i {
+            font-size: 1.3rem;
+        }
+
+        .hero-features {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+            animation: slideInUp 1s ease-out 0.5s backwards;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: rgba(212, 165, 116, 0.1);
+            padding: 1rem 1.5rem;
+            border-radius: 30px;
+            border: 1px solid rgba(212, 165, 116, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .feature-item i {
+            font-size: 1.5rem;
+            color: #d4a574;
+        }
+
+        .feature-item span {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .cursor {
+            color: #d4a574;
+            animation: blink 0.7s infinite;
+            margin-left: 0.2rem;
+        }
+
+        @keyframes blink {
+
+            0%,
+            49% {
+                opacity: 1;
+            }
+
+            50%,
+            100% {
+                opacity: 0;
+            }
+        }
+
+        /* ============= WHY CHOOSE US SECTION ============= */
+        .why-choose-us {
+            background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 50%, #121620 100%);
+            padding: 5rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .why-choose-us::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -5%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212, 165, 116, 0.12) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .why-choose-us::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(212, 165, 116, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .section-header {
+            margin-bottom: 4rem;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 0.9rem;
+            color: #d4a574;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .section-subtitle::before {
+            content: '';
+            width: 30px;
+            height: 2px;
+            background: #d4a574;
+        }
+
+        .section-subtitle::after {
+            content: '';
+            width: 30px;
+            height: 2px;
+            background: #d4a574;
+        }
+
+        .section-title {
+            font-size: 3.2rem;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+
+        .section-title span {
+            color: #d4a574;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title span::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #d4a574, transparent);
+            border-radius: 2px;
+        }
+
+        .section-description {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+            font-weight: 500;
+        }
+
+        /* Stats Container */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 4rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 2;
+            padding: 0 1rem;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2.5rem 1.5rem;
+            border-radius: 15px;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+            border: 2px solid rgba(212, 165, 116, 0.2);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #d4a574, transparent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+        }
+
+        .stat-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(212, 165, 116, 0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-12px);
+            border-color: rgba(212, 165, 116, 0.6);
+            box-shadow: 0 20px 50px rgba(212, 165, 116, 0.15), inset 0 0 30px rgba(212, 165, 116, 0.05);
+        }
+
+        .stat-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .stat-card:hover::after {
+            opacity: 1;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #d4a574;
+            margin-bottom: 0.8rem;
+            display: block;
+            letter-spacing: -1px;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* Features Container */
+        .features-container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 2;
+            padding: 0 1rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 2rem 1.8rem;
+            border-radius: 15px;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            text-align: center;
+            border: 2px solid rgba(212, 165, 116, 0.2);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 350px;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #d4a574, transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(212, 165, 116, 0.4);
+            box-shadow: 0 15px 40px rgba(212, 165, 116, 0.12);
+            background: rgba(26, 93, 58, 0.08);
+        }
+
+        .feature-icon {
+            font-size: 2.8rem;
+            margin-bottom: 1.2rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, rgba(212, 165, 116, 0.2) 0%, rgba(212, 165, 116, 0.05) 100%);
+            border-radius: 15px;
+            color: #d4a574;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+            position: relative;
+            z-index: 1;
+            border: 2px solid rgba(212, 165, 116, 0.2);
+        }
+
+        .feature-card:hover .feature-icon {
+            background: rgba(212, 165, 116, 0.15);
+            color: #d4a574;
+            transform: translateY(-8px) scale(1.12);
+            box-shadow: 0 20px 50px rgba(212, 165, 116, 0.3);
+            border-color: rgba(212, 165, 116, 0.6);
+        }
+
+        .feature-title {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+            letter-spacing: -0.5px;
+            line-height: 1.4;
+        }
+
+        .feature-description {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* CTA Button */
+        .why-cta-btn {
+            display: inline-flex;
+            padding: 1.3rem 3.2rem;
+            background: linear-gradient(135deg, #d4a574 0%, #e8b86d 100%);
+            color: #1d4e3a;
+            text-decoration: none;
+            border: none;
+            border-radius: 60px;
+            font-size: 1.05rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+            box-shadow: 0 15px 40px rgba(212, 165, 116, 0.35);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            align-items: center;
+            justify-content: center;
+            gap: 0.9rem;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .why-cta-btn:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(212, 165, 116, 0.5);
+        }
+
+        .why-cta-btn:active {
+            transform: translateY(-2px);
+        }
+
+        .why-cta-btn i {
+            font-size: 1.2rem;
+        }
+
+        /* ============= RESPONSIVE ============= */
+        @media (max-width: 768px) {
+            .why-choose-us {
+                padding: 3rem 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .section-description {
+                font-size: 0.95rem;
+            }
+
+            .stats-container {
+                gap: 1rem;
+                margin-bottom: 3rem;
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .stat-card {
+                padding: 1.5rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .features-container {
+                gap: 1.5rem;
+            }
+
+            .feature-card {
+                padding: 2rem;
+            }
+
+            .feature-title {
+                font-size: 1.1rem;
+            }
+
+            .feature-description {
+                font-size: 0.9rem;
+            }
+
+            .why-cta-btn {
+                padding: 1rem 2rem;
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .why-choose-us {
+                padding: 2rem 1rem;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .section-subtitle {
+                font-size: 0.9rem;
+            }
+
+            .section-description {
+                font-size: 0.9rem;
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+                margin-bottom: 2.5rem;
+            }
+
+            .stat-card {
+                padding: 1.2rem;
+            }
+
+            .stat-number {
+                font-size: 1.8rem;
+            }
+
+            .stat-label {
+                font-size: 0.85rem;
+            }
+
+            .features-container {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+
+            .feature-card {
+                padding: 1.5rem;
+            }
+
+            .feature-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 2.2rem;
+            }
+
+            .feature-title {
+                font-size: 1rem;
+            }
+
+            .feature-description {
+                font-size: 0.85rem;
+            }
+
+            .why-cta-btn {
+                padding: 0.9rem 1.8rem;
+                font-size: 0.85rem;
+                gap: 0.5rem;
+            }
+        }
+
+        /* ============= RESPONSIVE ============= */
+        @media (max-width: 768px) {
+            .hero-banner {
+                height: 500px;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+            }
+
+            .hero-btn {
+                padding: 0.9rem 2rem;
+                font-size: 1rem;
+            }
+
+            .hero-features {
+                gap: 1rem;
+            }
+
+            .feature-item {
+                padding: 0.8rem 1.2rem;
+            }
+
+            .feature-item i {
+                font-size: 1.3rem;
+            }
+
+            .feature-item span {
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-banner {
+                height: 400px;
+            }
+
+            .hero-content {
+                padding: 1.5rem;
+            }
+
+            .hero-title {
+                font-size: 1.8rem;
+            }
+
+            .hero-title span {
+                margin-top: 0.3rem;
+            }
+
+            .hero-subtitle {
+                font-size: 0.9rem;
+            }
+
+            .hero-description {
+                font-size: 0.9rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .hero-buttons {
+                gap: 1rem;
+                flex-direction: column;
+            }
+
+            .hero-btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .hero-features {
+                gap: 0.8rem;
+                flex-direction: column;
+            }
+
+            .feature-item {
+                padding: 0.7rem 1rem;
+                width: 100%;
+            }
+
+            .feature-item span {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .hero-banner {
+                height: 350px;
+            }
+
+            .hero-title {
+                font-size: 1.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 0.8rem;
+            }
+
+            .hero-description {
+                font-size: 0.85rem;
+            }
+
+            .hero-btn {
+                padding: 0.7rem 1.2rem;
+                font-size: 0.8rem;
+            }
+
+            .hero-btn i {
+                font-size: 1rem;
+            }
+
+            .feature-item {
+                padding: 0.6rem 0.8rem;
+            }
+
+            .feature-item i {
+                font-size: 1.1rem;
+            }
+
+            .feature-item span {
+                font-size: 0.75rem;
+            }
+        }
+
+        /* ============= UPCOMING DEPARTURES SECTION ============= */
+        .upcoming-departures {
+            /* background: linear-gradient(135deg, #1a1f2e 0%, #0f1419 50%, #1a1f2e 100%); */
+            background-color: whitesmoke;
+            padding: 5rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .upcoming-departures::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            left: -5%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(212, 165, 116, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .upcoming-departures::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(26, 93, 58, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .departures-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            max-width: 1400px;
+            margin: 0 auto 4rem auto;
+            position: relative;
+            z-index: 2;
+            padding: 0 1rem;
+        }
+
+        .departure-card {
+            background: linear-gradient(135deg, rgba(212, 165, 116, 0.08) 0%, rgba(26, 93, 58, 0.05) 100%);
+            border: 2px solid rgba(212, 165, 116, 0.25);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+        }
+
+        .departure-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #d4a574, transparent);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .departure-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(212, 165, 116, 0.05) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+        }
+
+        .departure-card:hover {
+            transform: translateY(-12px);
+            border-color: rgba(212, 165, 116, 0.5);
+            box-shadow: 0 20px 60px rgba(212, 165, 116, 0.15), inset 0 0 30px rgba(212, 165, 116, 0.03);
+            background: linear-gradient(135deg, rgba(212, 165, 116, 0.12) 0%, rgba(26, 93, 58, 0.08) 100%);
+        }
+
+        .departure-card:hover::before {
+            opacity: 1;
+        }
+
+        .departure-card:hover::after {
+            opacity: 1;
+        }
+
+        .departure-card.popular {
+            border-color: rgba(212, 165, 116, 0.6);
+            background: linear-gradient(135deg, rgba(212, 165, 116, 0.12) 0%, rgba(26, 93, 58, 0.08) 100%);
+            box-shadow: 0 20px 60px rgba(212, 165, 116, 0.2), inset 0 0 30px rgba(212, 165, 116, 0.05);
+            position: relative;
+            z-index: 1;
+        }
+
+        .departure-card.popular::before {
+            opacity: 1;
+            animation: slideRight 2s ease-in-out infinite;
+        }
+
+        @keyframes slideRight {
+
+            0%,
+            100% {
+                transform: translateX(-100%);
+            }
+
+            50% {
+                transform: translateX(0);
+            }
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: linear-gradient(135deg, #d4a574 0%, #e8b86d 100%);
+            color: #0d3a22;
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 8px 20px rgba(212, 165, 116, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .popular-badge i {
+            font-size: 0.9rem;
+        }
+
+        .departure-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            border-bottom: 2px solid rgba(212, 165, 116, 0.15);
+            padding-bottom: 1.5rem;
+        }
+
+        .departure-dates {
+            flex: 1;
+        }
+
+        .departure-dates-label {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .departure-dates-range {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: white;
+            line-height: 1.3;
+            letter-spacing: -0.5px;
+        }
+
+        .departure-duration {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            background: rgba(212, 165, 116, 0.1);
+            padding: 0.8rem 1.2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(212, 165, 116, 0.2);
+        }
+
+        .departure-duration-label {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        .departure-days {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: #d4a574;
+            line-height: 1;
+        }
+
+        .departure-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .departure-detail-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(212, 165, 116, 0.1);
+        }
+
+        .departure-detail-row:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .detail-label {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            font-weight: 600;
+            flex: 1;
+        }
+
+        .detail-label i {
+            color: #d4a574;
+            font-size: 1.1rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        .detail-value {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .airline-name {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .airline-badge {
+            background: linear-gradient(135deg, rgba(212, 165, 116, 0.2) 0%, rgba(212, 165, 116, 0.05) 100%);
+            padding: 0.4rem 0.8rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(212, 165, 116, 0.2);
+            color: #d4a574;
+            font-weight: 700;
+        }
+
+        .price-value {
+            font-size: 1.3rem;
+            background: linear-gradient(135deg, #d4a574 0%, #e8b86d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 900;
+        }
+
+        .seats-status {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .seats-badge {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff1744 100%);
+            color: white;
+            padding: 0.3rem 0.7rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .seats-badge.medium {
+            background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%);
+        }
+
+        .seats-badge.high {
+            background: linear-gradient(135deg, #4caf50 0%, #00c853 100%);
+        }
+
+        .progress-section {
+            margin-top: 0.5rem;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.8rem;
+            font-size: 0.85rem;
+        }
+
+        .progress-label-text {
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 600;
+        }
+
+        .progress-percentage {
+            color: #d4a574;
+            font-weight: 800;
+            font-size: 0.9rem;
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            height: 8px;
+            background: rgba(212, 165, 116, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(212, 165, 116, 0.15);
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #d4a574 0%, #e8b86d 100%);
+            border-radius: 10px;
+            transition: width 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 0 12px rgba(212, 165, 116, 0.5);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 12px rgba(212, 165, 116, 0.5);
+            }
+
+            50% {
+                box-shadow: 0 0 20px rgba(212, 165, 116, 0.8);
+            }
+        }
+
+        .departure-button {
+            background: linear-gradient(135deg, #d4a574 0%, #e8b86d 100%);
+            color: #0d3a22;
+            border: none;
+            padding: 1.2rem 2rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 12px 30px rgba(212, 165, 116, 0.3);
+            text-decoration: none;
+            width: 100%;
+        }
+
+        .departure-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(212, 165, 116, 0.5);
+            background: linear-gradient(135deg, #e8b86d 0%, #f0c477 100%);
+        }
+
+        .departure-button:active {
+            transform: translateY(-1px);
+        }
+
+        .departure-button i {
+            font-size: 1.2rem;
+        }
+
+        .departures-footer {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: rgba(212, 165, 116, 0.08);
+            border-radius: 15px;
+            border: 2px solid rgba(212, 165, 116, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .footer-note {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            color: rgba(83, 0, 0, 0.85);
+            font-size: 1rem;
+            font-weight: 600;
+            line-height: 1.6;
+        }
+
+        .footer-note i {
+            color: #d4a574;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        /* ============= RESPONSIVE ============= */
+        @media (max-width: 1024px) {
+            .departures-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+
+            .departure-card {
+                padding: 2rem;
+            }
+
+            .departure-dates-range {
+                font-size: 1.2rem;
+            }
+
+            .detail-value {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .upcoming-departures {
+                padding: 3rem 1.5rem;
+            }
+
+            .departures-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .departure-card {
+                padding: 1.8rem;
+                gap: 1.5rem;
+            }
+
+            .departure-header {
+                padding-bottom: 1.2rem;
+            }
+
+            .departure-dates-range {
+                font-size: 1.1rem;
+            }
+
+            .departure-days {
+                font-size: 1.3rem;
+            }
+
+            .detail-label {
+                font-size: 0.9rem;
+            }
+
+            .detail-value {
+                font-size: 1rem;
+            }
+
+            .price-value {
+                font-size: 1.2rem;
+            }
+
+            .departure-button {
+                padding: 1rem 1.8rem;
+                font-size: 0.95rem;
+            }
+
+            .departures-footer {
+                padding: 1.5rem;
+            }
+
+            .footer-note {
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .upcoming-departures {
+                padding: 2rem 1rem;
+            }
+
+            .departures-container {
+                gap: 1.2rem;
+            }
+
+            .departure-card {
+                padding: 1.5rem;
+                gap: 1.2rem;
+            }
+
+            .departure-header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding-bottom: 1rem;
+                border-bottom: 1px solid rgba(212, 165, 116, 0.1);
+            }
+
+            .departure-duration {
+                width: 100%;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .departure-dates-range {
+                font-size: 1rem;
+            }
+
+            .departure-days {
+                font-size: 1.2rem;
+            }
+
+            .detail-label {
+                font-size: 0.85rem;
+            }
+
+            .detail-value {
+                font-size: 0.95rem;
+            }
+
+            .price-value {
+                font-size: 1.1rem;
+            }
+
+            .departure-button {
+                padding: 0.9rem 1.5rem;
+                font-size: 0.9rem;
+                gap: 0.6rem;
+            }
+
+            .departure-button i {
+                font-size: 1rem;
+            }
+
+            .departures-footer {
+                padding: 1.2rem;
+            }
+
+            .footer-note {
+                font-size: 0.9rem;
+                gap: 0.6rem;
+            }
+
+            .footer-note i {
+                font-size: 1rem;
+            }
+        }
+    </style>
+
+    <style>
+        /* ============= TESTIMONIALS SECTION ============= */
+        .testimonials-section {
+            background: #ffffff;
+            padding: 5rem 2rem;
+            position: relative;
+            overflow: hidden;
+            min-height: 100%;
+            width: 100%;
+            height: 100%;
+        }
+
+        .testimonials-section::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -5%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212, 165, 116, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .testimonials-section::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(26, 93, 58, 0.03) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .section-header {
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 0.9rem;
+            color: #d4a574;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .section-subtitle::before {
+            content: '';
+            width: 30px;
+            height: 2px;
+            background: #d4a574;
+        }
+
+        .section-subtitle::after {
+            content: '';
+            width: 30px;
+            height: 2px;
+            background: #d4a574;
+        }
+
+        .section-title {
+            font-size: 3.2rem;
+            font-weight: 900;
+            color: #0d3a22;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+
+        .section-title span {
+            color: #d4a574;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title span::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #d4a574, transparent);
+            border-radius: 2px;
+        }
+
+        .section-description {
+            font-size: 1.05rem;
+            color: rgba(0, 0, 0, 0.7);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+            font-weight: 500;
+        }
+
+
+        .testimonials-container {
+            display: flex;
+            gap: 24px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-behavior: smooth;
+            width: 100%;
+            margin: 3rem auto 0;
+            padding: 10px 20px;
+        }
+
+        .testimonials-container::-webkit-scrollbar {
+            display: none;
+        }
+
+
+        .testimonial-card {
+            background: linear-gradient(135deg, rgba(212, 165, 116, 0.06) 0%, rgba(26, 93, 58, 0.04) 100%);
+            border: 2px solid rgba(212, 165, 116, 0.2);
+            border-radius: 20px;
+            padding: 1.8rem 1.5rem;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+
+            flex: 0 0 calc((100% - 48px) / 3);
+        }
+
+
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #d4a574, transparent);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .testimonial-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(212, 165, 116, 0.05) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-12px);
+            border-color: rgba(212, 165, 116, 0.5);
+            box-shadow: 0 20px 60px rgba(212, 165, 116, 0.15), inset 0 0 30px rgba(212, 165, 116, 0.03);
+            background: linear-gradient(135deg, rgba(212, 165, 116, 0.1) 0%, rgba(26, 93, 58, 0.06) 100%);
+        }
+
+        .testimonial-card:hover::before {
+            opacity: 1;
+        }
+
+        .testimonial-card:hover::after {
+            opacity: 1;
+        }
+
+        .testimonial-rating {
+            display: flex;
+            gap: 0.4rem;
+            align-items: center;
+        }
+
+        .star {
+            color: #ffc107;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-rating:hover .star {
+            transform: scale(1.1);
+        }
+
+        .rating-text {
+            color: rgba(0, 0, 0, 0.7);
+            font-size: 0.85rem;
+            margin-left: 0.5rem;
+            font-weight: 600;
+        }
+
+        .testimonial-text {
+            color: rgba(0, 0, 0, 0.8);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            position: relative;
+            z-index: 1;
+            min-height: 60px;
+        }
+
+        .testimonial-text::before {
+            content: '"';
+            font-size: 2.5rem;
+            color: rgba(212, 165, 116, 0.3);
+            position: absolute;
+            top: -10px;
+            left: -15px;
+            font-weight: 900;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border-top: 2px solid rgba(212, 165, 116, 0.15);
+            padding-top: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #d4a574 0%, #e8b86d 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #0d3a22;
+            font-weight: 800;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(212, 165, 116, 0.3);
+        }
+
+        .author-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .author-name {
+            color: #0d3a22;
+            font-weight: 800;
+            font-size: 0.95rem;
+            letter-spacing: -0.5px;
+        }
+
+        .author-location {
+            color: rgba(0, 0, 0, 0.6);
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .author-location i {
+            color: #d4a574;
+            font-size: 0.75rem;
+        }
+
+        .verified-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: rgba(76, 175, 80, 0.2);
+            color: #4caf50;
+            padding: 0.3rem 0.7rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-left: auto;
+        }
+
+        .verified-badge i {
+            font-size: 0.8rem;
+        }
+
+        .testimonials-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 4rem;
+            position: relative;
+            z-index: 2;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .stat-item .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #d4a574;
+            letter-spacing: -1px;
+        }
+
+        .stat-item .stat-description {
+            color: rgba(0, 0, 0, 0.7);
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+
+        /* Tablet → 2 cards */
+        @media (max-width: 992px) {
+            .testimonial-card {
+                flex: 0 0 calc((100% - 24px) / 2);
+                min-width: calc((100% - 24px) / 2);
+            }
+        }
+
+        /* Mobile → 1 card */
+        @media (max-width: 600px) {
+            .testimonial-card {
+                flex: 0 0 100%;
+                min-width: 100%;
+            }
+        }
+
+        /* ============= RESPONSIVE ============= */
+        @media (max-width: 1024px) {
+            .testimonials-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+
+            .testimonial-card {
+                padding: 2rem;
+            }
+
+            .testimonials-stats {
+                gap: 2rem;
+            }
+
+            .stat-item .stat-number {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .testimonials-section {
+                padding: 3rem 1.5rem;
+            }
+
+            .testimonials-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                margin-top: 2rem;
+            }
+
+            .testimonial-card {
+                padding: 1.8rem;
+                gap: 1.3rem;
+            }
+
+            .testimonial-text {
+                font-size: 0.95rem;
+                min-height: 70px;
+            }
+
+            .testimonials-stats {
+                gap: 2rem;
+                margin-top: 3rem;
+            }
+
+            .stat-item .stat-number {
+                font-size: 1.8rem;
+            }
+
+            .stat-item .stat-description {
+                font-size: 0.9rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .section-description {
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .testimonials-section {
+                padding: 2rem 1rem;
+            }
+
+            .testimonials-container {
+                gap: 1.2rem;
+            }
+
+            .testimonial-card {
+                padding: 1.5rem;
+                gap: 1.2rem;
+            }
+
+            .testimonial-text {
+                font-size: 0.9rem;
+                min-height: 60px;
+                line-height: 1.6;
+            }
+
+            .testimonial-author {
+                padding-top: 1.2rem;
+                gap: 0.8rem;
+            }
+
+            .author-avatar {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+
+            .author-name {
+                font-size: 0.9rem;
+            }
+
+            .author-location {
+                font-size: 0.75rem;
+            }
+
+            .verified-badge {
+                padding: 0.25rem 0.6rem;
+                font-size: 0.7rem;
+            }
+
+            .testimonials-stats {
+                gap: 1.5rem;
+                margin-top: 2.5rem;
+            }
+
+            .stat-item .stat-number {
+                font-size: 1.5rem;
+            }
+
+            .stat-item .stat-description {
+                font-size: 0.85rem;
+            }
+
+            .star {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .section-subtitle {
+                font-size: 0.9rem;
+            }
+
+            .section-description {
+                font-size: 0.9rem;
+            }
+        }
+
+        .slider-btn {
+            background: #d4a574;
+            border: none;
+            padding: 10px 18px;
+            margin: 5px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .slider-btn:hover {
+            opacity: 0.85;
+        }
+    </style>
+
+    <style>
+        .pillars-section {
+            background: radial-gradient(circle at top, #114d2e, #051f18 70%);
+            padding: 100px 20px 120px;
+            position: relative;
+            overflow: visible;
+
+        }
+
+
+
+        .pillars-section::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(212, 165, 116, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .section-header {
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 0.9rem;
+            color: #d4a574;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .section-subtitle::before {
+            content: '';
+            width: 30px;
+            height: 2px;
+            background: #d4a574;
+        }
+
+        .section-subtitle::after {
+            content: '';
+            width: 30px;
+            height: 2px;
+            background: #d4a574;
+        }
+
+        /* .section-title {
+            font-size: 3.2rem;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            letter-spacing: -1px;
+        } */
+
+        .section-title span {
+            color: #d4a574;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title span::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #d4a574, transparent);
+            border-radius: 2px;
+        }
+
+        /* .section-description {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+            font-weight: 500;
+        } */
+
+        .pillars-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 25px;
+            max-width: 1400px;
+            margin: 50px auto;
+            padding-bottom: 10px;
+            overflow-y: visible;
+            /* IMPORTANT */
+            padding-top: 20px;
+            /* space for hover */
+        }
+
+        .pillars-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .pillar-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+            border: 1px solid rgba(212, 165, 116, 0.35);
+            border-radius: 22px;
+            padding: 35px 28px;
+            text-align: center;
+            transition: 0.4s;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Cards behave like slides */
+        .pillar-card {
+            min-width: 280px;
+            max-width: 320px;
+            flex-shrink: 0;
+            scroll-snap-align: center;
+        }
+
+        .pillar-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #d4a574, transparent);
+        }
+
+        .pillar-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(212, 165, 116, 0.05) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-14px);
+            box-shadow: 0 25px 60px rgba(212, 165, 116, 0.25);
+            border-color: #d4a574;
+        }
+
+        .pillar-card:hover::before {
+            opacity: 1;
+        }
+
+        .pillar-card:hover::after {
+            opacity: 1;
+        }
+
+        .pillar-number {
+            width: 20px;
+            height: 20px;
+            background: #d4a574;
+            color: #0d3a22;
+            font-weight: 900;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+        }
+
+        .pillar-card:hover .pillar-number {
+            transform: scale(1.15) rotateZ(10deg);
+            box-shadow: 0 12px 30px rgba(212, 165, 116, 0.5);
+        }
+
+        .pillar-icon {
+            font-size: 30px;
+            color: #d4a574;
+            background: rgba(212, 165, 116, 0.12);
+            width: 70px;
+            height: 70px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 18px;
+            transition: 0.4s;
+        }
+
+
+        .pillar-card:hover .pillar-icon {
+            transform: scale(1.15);
+            box-shadow: 0 15px 35px rgba(212, 165, 116, 0.35);
+        }
+
+        .pillar-title {
+            color: white;
+            font-size: 22px;
+            font-weight: 800;
+        }
+
+        .pillar-arabic {
+            color: #d4a574;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+
+        .pillar-description {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .pillar-details {
+            margin-top: 18px;
+            text-align: left;
+        }
+
+        .detail-item {
+            color: #eee;
+            font-size: 13px;
+            margin: 7px 0;
+        }
+
+        .detail-item i {
+            color: #d4a574;
+            margin-right: 7px;
+        }
+
+        .pillars-footer {
+            max-width: 1000px;
+            margin: 4rem auto 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .pillar-insight {
+            background: linear-gradient(145deg, rgba(212, 165, 116, 0.15), rgba(212, 165, 116, 0.05));
+            border: 1px solid rgba(212, 165, 116, 0.5);
+            border-radius: 18px;
+            padding: 40px;
+            color: white;
+            display: flex;
+            gap: 25px;
+            align-items: flex-start;
+        }
+
+        .pillar-insight h3 {
+            color: #d4a574;
+            margin-bottom: 10px;
+        }
+
+        .pillar-insight i {
+            font-size: 32px;
+            color: #d4a574;
+        }
+
+        .pillar-insight p {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+            font-weight: 500;
+        }
+
+        @media (max-width: 1024px) {
+            .pillars-container {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2rem;
+            }
+
+            .pillar-card {
+                padding: 2rem;
+                min-height: 350px;
+            }
+
+            .pillar-icon {
+                width: 90px;
+                height: 90px;
+                font-size: 3rem;
+            }
+
+            .pillar-title {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .pillars-section {
+                padding: 3rem 1.5rem;
+            }
+
+            .pillars-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .pillar-card {
+                padding: 1.8rem;
+                min-height: 320px;
+            }
+
+            .pillar-icon {
+                width: 80px;
+                height: 80px;
+                font-size: 2.5rem;
+            }
+
+            .pillar-title {
+                font-size: 1.1rem;
+            }
+
+            .pillar-description {
+                font-size: 0.85rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .pillar-insight {
+                padding: 2rem;
+                gap: 1.5rem;
+            }
+
+            .pillar-insight i {
+                font-size: 2rem;
+            }
+
+            .pillar-insight h3 {
+                font-size: 1.1rem;
+            }
+
+            .pillar-insight p {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .pillars-section {
+                padding: 2rem 1rem;
+            }
+
+            .pillars-container {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+
+            .pillar-card {
+                padding: 1.5rem;
+                min-height: 300px;
+            }
+
+            .pillar-number {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+
+            .pillar-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 2rem;
+            }
+
+            .pillar-title {
+                font-size: 1rem;
+            }
+
+            .pillar-arabic {
+                font-size: 0.95rem;
+            }
+
+            .pillar-description {
+                font-size: 0.8rem;
+            }
+
+            .detail-item {
+                font-size: 0.8rem;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .pillar-insight {
+                padding: 1.5rem;
+                gap: 1rem;
+                flex-direction: column;
+            }
+
+            .pillar-insight i {
+                font-size: 1.8rem;
+            }
+
+            .pillar-insight h3 {
+                font-size: 1rem;
+            }
+
+            .pillar-insight p {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+
+    <style>
+        .faq-section {
+            background: #ffffff;
+            padding: 3rem 2rem;
+            width: 100%;
+        }
+
+        .faq-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .faq-subtitle {
+            font-size: 0.9rem;
+            color: #d4a574;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .faq-subtitle::before {
+            content: '';
+            width: 30px;
+            height: 2px;
+            background: #d4a574;
+        }
+
+        .faq-subtitle::after {
+            content: '';
+            width: 30px;
+            height: 2px;
+            background: #d4a574;
+        }
+
+        .faq-title {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #0f1419;
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
+        }
+
+        .faq-description {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .faq-item {
+            background: #f8f9fa;
+            border: 2px solid #e5e5e5;
+            border-radius: 15px;
+            margin-bottom: 0.8rem;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .faq-item:hover {
+            border-color: #d4a574;
+            box-shadow: 0 5px 20px rgba(212, 165, 116, 0.1);
+        }
+
+        .faq-question {
+            padding: 1.2rem 1.8rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #0f1419;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+
+        .faq-question:hover {
+            color: #d4a574;
+        }
+
+        .faq-icon {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #d4a574;
+            color: white;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            transition: transform 0.4s ease;
+            flex-shrink: 0;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+            background: white;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-answer-content {
+            padding: 0 1.8rem 1.8rem 1.8rem;
+            color: #555;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .faq-contact {
+            background: linear-gradient(135deg, rgba(212, 165, 116, 0.1) 0%, rgba(212, 165, 116, 0.05) 100%);
+            border: 2px solid #d4a574;
+            border-radius: 20px;
+            padding: 2rem 2rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .faq-contact-title {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #0f1419;
+            margin-bottom: 0.6rem;
+        }
+
+        .faq-contact-description {
+            color: #666;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .faq-contact-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-contact {
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+        }
+
+        .btn-whatsapp:hover {
+            background: #1da851;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-enquiry {
+            background: #d4a574;
+            color: white;
+        }
+
+        .btn-enquiry:hover {
+            background: #c49464;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(212, 165, 116, 0.3);
+        }
+
+        .btn-contact i {
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .faq-section {
+                padding: 3rem 1.5rem;
+            }
+
+            .faq-title {
+                font-size: 2rem;
+            }
+
+            .faq-question {
+                padding: 1.5rem;
+                font-size: 1rem;
+            }
+
+            .faq-answer-content {
+                padding: 0 1.5rem 1.5rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .faq-contact {
+                padding: 2rem 1.5rem;
+            }
+
+            .faq-contact-buttons {
+                flex-direction: column;
+            }
+
+            .btn-contact {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .faq-section {
+                padding: 2rem 1rem;
+            }
+
+            .faq-title {
+                font-size: 1.6rem;
+            }
+
+            .faq-subtitle {
+                font-size: 0.8rem;
+            }
+
+            .faq-question {
+                padding: 1.2rem;
+                font-size: 0.95rem;
+            }
+
+            .faq-icon {
+                width: 28px;
+                height: 28px;
+                font-size: 1rem;
+            }
+
+            .faq-answer-content {
+                padding: 0 1.2rem 1.2rem 1.2rem;
+                font-size: 0.85rem;
+            }
+
+            .faq-contact {
+                padding: 1.5rem 1rem;
+            }
+
+            .faq-contact-title {
+                font-size: 1.2rem;
+            }
+
+            .btn-contact {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+                gap: 0.6rem;
+            }
+
+            .btn-contact i {
+                font-size: 1rem;
+            }
+        }
+    </style>
+
+    <style>
+        /* Footer Styles */
+        .footer-section {
+            background: linear-gradient(135deg, #1a5a3a 0%, #0f3d23 50%, #1a5a3a 100%);
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .footer-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                radial-gradient(circle at 20% 30%, rgba(212, 165, 116, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(100, 200, 140, 0.1) 0%, transparent 50%),
+                repeating-linear-gradient(45deg, transparent, transparent 100px, rgba(212, 165, 116, 0.02) 100px, rgba(212, 165, 116, 0.02) 200px);
+            pointer-events: none;
+        }
+
+        .footer-section .footer-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-section .footer-column {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .footer-section .footer-title {
+            font-size: 1.3rem;
+            font-weight: 900;
+            color: white;
+            letter-spacing: -0.5px;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+
+        .footer-section .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, #d4a574, transparent);
+            border-radius: 2px;
+        }
+
+        .footer-section .footer-text {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+            font-weight: 500;
+        }
+
+        .footer-section .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .footer-section .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(212, 165, 116, 0.15);
+            border: 2px solid rgba(212, 165, 116, 0.3);
+            border-radius: 50%;
+            color: #d4a574;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .footer-section .social-icon:hover {
+            background: #d4a574;
+            color: #1a5a3a;
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(212, 165, 116, 0.3);
+        }
+
+        .footer-section .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .footer-section .footer-links li {
+            transition: all 0.3s ease;
+        }
+
+        .footer-section .footer-links a {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .footer-section .footer-links a::before {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #d4a574;
+            transition: width 0.3s ease;
+        }
+
+        .footer-section .footer-links a:hover {
+            color: #d4a574;
+        }
+
+        .footer-section .footer-links a:hover::before {
+            width: 100%;
+        }
+
+        .footer-section .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+        }
+
+        .footer-section .contact-item i {
+            color: #d4a574;
+            font-size: 1.1rem;
+            margin-top: 0.2rem;
+            min-width: 20px;
+        }
+
+        .footer-section .footer-bottom {
+            background: rgba(10, 40, 20, 0.6);
+            backdrop-filter: blur(10px);
+            border-top: 2px solid rgba(212, 165, 116, 0.15);
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-section .footer-bottom-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-section .footer-bottom-content p {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 500;
+        }
+
+        .footer-section .footer-bottom-links {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-section .footer-bottom-links a {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .footer-section .footer-bottom-links a:hover {
+            color: #d4a574;
+        }
+
+        .footer-section .divider {
+            color: rgba(212, 165, 116, 0.3);
+            font-weight: 700;
+        }
+
+        @media (max-width: 1024px) {
+            .footer-section .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2.5rem;
+                padding: 3rem 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-section .footer-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 2.5rem 1.5rem;
+            }
+
+            .footer-section .footer-bottom-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 1.5rem;
+            }
+
+            .footer-section .footer-bottom-links {
+                justify-content: center;
+            }
+
+            .footer-section .footer-title {
+                font-size: 1.1rem;
+            }
+
+            .footer-section .footer-text {
+                font-size: 0.9rem;
+            }
+
+            .footer-section .social-icons {
+                gap: 0.8rem;
+            }
+
+            .footer-section .social-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-section .footer-container {
+                gap: 1.5rem;
+                padding: 2rem 1rem;
+            }
+
+            .footer-section .footer-title {
+                font-size: 1rem;
+            }
+
+            .footer-section .footer-text {
+                font-size: 0.85rem;
+            }
+
+            .footer-section .footer-links a {
+                font-size: 0.9rem;
+            }
+
+            .footer-section .contact-item {
+                font-size: 0.9rem;
+            }
+
+            .footer-section .footer-bottom {
+                padding: 1.5rem 1rem;
+            }
+
+            .footer-section .footer-bottom-content p {
+                font-size: 0.85rem;
+            }
+
+            .footer-section .footer-bottom-links a {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+    <style>
+        @view-transition {
+            navigation: auto;
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+</head>
+
+<body>
+
+    <!-- TOP HEADER (EMAIL SECTION) -->
+    <header class="top-header">
+        <div class="header-left">
+            <div class="header-item"><i class="fas fa-map-marker-alt"></i> <span>Lucknow, Uttar Pradesh, India</span>
+            </div>
+            <div class="header-item"><i class="fas fa-phone"></i> <a href="tel:+919709701986">+91 9709701986</a>
+            </div>
+            <div class="header-item"><i class="fas fa-envelope"></i> <a
+                    href="mailto:prince.ali9709@gmail.com">prince.ali9709@gmail.com</a>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="live-clock-header" id="liveClockHeader">
+                <div class="clock-time-header">
+                    00:00:00
+                </div>
+                <div class="clock-ampm-header">
+                    AM
+                </div>
+            </div>
+            
+            <select class="language-selector" id="languageSelector">
+                <option value="en">🇬🇧 English</option>
+            <!--    /* <option value="hi">🇮🇳 हिंदी</option> */
+                /* <option value="ur">🇵🇰 اردو</option> */
+                /* <option value="ar">🇸🇦 العربية</option> */
+-->
+            </select>
+        </div>
+    </header>
+
+
+    <!-- PRAYER TIMING BAR -->
+    <section class="prayer-bar">
+        <div class="prayer-date-location" id="locationDate">
+            📍 Getting location...
+        </div>
+        <div class="prayer-times-container" id="prayerTimesContainer">
+            <!-- Prayer times will be populated by JavaScript -->
+        </div>
+        <div class="prayer-status"><i class="fas fa-mosque"></i>
+            <div class="prayer-info">
+                <div class="prayer-next" id="prayerStatus">
+                    Loading prayer times...
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STICKY NAVBAR -->
+    <nav class="sticky-navbar">
+        <div class="navbar-section left"><a href="index.html" class="navbar-logo"> <i class="fas fa-mosque"></i> <span>FAIZY TOUR
+                    &amp; TRAVELS</span> </a>
+        </div>
+        <div class="navbar-section center">
+            <div class="navbar-menu">
+                <a href="index.html">Home</a> 
+                <a href="aboutus.html">About</a> 
+                <a href="packages.html">Packages</a> 
+                <a href="gallery.html">Gallery</a> 
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+        <div class="navbar-section right">
+            <div class="navbar-actions"><a href="tel:+919709701986" class="navbar-btn navbar-btn-call"> <i
+                        class="fas fa-phone"></i> <span>Call Now</span> </a>
+
+                <button class="navbar-btn navbar-btn-book" id="bookNowBtn"
+                    onclick="window.location.href='contact.html'"> <i class="fas fa-paper-plane"></i> <span>Book
+                        Now</span> </button>
+            </div><button class="hamburger" id="hamburgerBtn"> <span></span> <span></span> <span></span> </button>
+        </div>
+        <div class="mobile-menu" id="mobileMenu"><a href="index.html">Home</a> <a href="aboutus.html">About</a> <a
+                href="packages.html">Packages</a> <a href="gallery.html">Gallery</a> <a href="contact.html">Contact</a> <a
+                href="tel:+919709701986">📞 Call Now</a> <a href="contact.html" id="mobileBookBtn">✈ Book Now</a>
+        </div>
+    </nav>
+
+    <!-- HERO BANNER -->
+    <section class="hero-banner" id="home">
+        <div class="hero-content">
+            <div class="hero-subtitle"><i class="fas fa-heart"></i> Welcome to Your Spiritual Journey
+            </div>
+            <h1 class="hero-title">Experience the Sacred <span id="dynamicTitle"></span><span class="cursor">|</span>
+            </h1>
+            <p class="hero-description">Your trusted partner for a memorable pilgrimage. Professional guidance,
+                comfortable accommodation, and spiritual fulfillment await you.</p>
+            <div class="hero-features">
+                <div class="feature-item"><i class="fas fa-handshake"></i> <span>100% Trusted</span>
+                </div>
+                <div class="feature-item"><i class="fas fa-users"></i> <span>5000+ Happy Pilgrims</span>
+                </div>
+                <div class="feature-item"><i class="fas fa-star"></i> <span>5-Star Service</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- WHY CHOOSE US SECTION -->
+    <section class="why-choose-us" id="about" style="padding-bottom: 5px;">
+        <div class="section-header">
+            <div class="section-subtitle"><i class="fas fa-check-circle"></i> OUR STRENGTHS
+            </div>
+            <h2 class="section-title" style="color: white;">Why Choose <span>FAIZY TOURS</span>?</h2>
+            <p class="section-description" style="color: wheat;">With over a decade of experience in Hajj and Umrah
+                services, we've helped
+                thousands of pilgrims fulfill their spiritual dreams with comfort, safety, and devotion.</p>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-number">
+                    10+
+                </div>
+                <div class="stat-label">
+                    Years Experience
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">
+                    5000+
+                </div>
+                <div class="stat-label">
+                    Happy Pilgrims
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">
+                    50+
+                </div>
+                <div class="stat-label">
+                    Expert Guides
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">
+                    4.9/5
+                </div>
+                <div class="stat-label">
+                    Star Rating
+                </div>
+            </div>
+        </div><!-- Features Section -->
+        <div class="features-container">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewbox="0 0 100 100" width="70" height="70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <lineargradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#FF6B6B;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#FF1744;stop-opacity:1" />
+                            </lineargradient>
+                        </defs> <!-- Suitcase/Travel icon - colorful -->
+                        <rect x="25" y="30" width="50" height="45" stroke="url(#grad1)" stroke-width="2.5" fill="none"
+                            rx="3" stroke-linejoin="round" />
+                        <path d="M 35 30 Q 35 15 50 15 Q 65 15 65 30" stroke="url(#grad1)" stroke-width="2.5"
+                            fill="none" stroke-linecap="round" />
+                        <circle cx="50" cy="38" r="5" stroke="url(#grad1)" stroke-width="1.5" fill="none" />
+                        <path d="M 48 38 L 52 38" stroke="url(#grad1)" stroke-width="1.5" />
+                        <circle cx="35" cy="75" r="3" fill="#FF6B6B" />
+                        <circle cx="65" cy="75" r="3" fill="#FF6B6B" />
+                        <line x1="30" y1="50" x2="30" y2="60" stroke="url(#grad1)" stroke-width="1" />
+                        <line x1="70" y1="50" x2="70" y2="60" stroke="url(#grad1)" stroke-width="1" />
+                    </svg>
+                </div>
+                <h3 class="feature-title">Complete Travel Management</h3>
+                <p class="feature-description">From visa processing to airport transfers, we handle every detail of your
+                    journey with precision and care.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewbox="0 0 100 100" width="70" height="70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <lineargradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#4ECDC4;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#00BCD4;stop-opacity:1" />
+                            </lineargradient>
+                        </defs> <!-- Hotel icon - colorful -->
+                        <rect x="25" y="30" width="50" height="50" stroke="url(#grad2)" stroke-width="2" fill="none"
+                            stroke-linejoin="miter" />
+                        <path d="M 25 30 L 50 15 L 75 30" stroke="url(#grad2)" stroke-width="2" fill="none"
+                            stroke-linejoin="miter" />
+                        <rect x="44" y="60" width="12" height="20" stroke="url(#grad2)" stroke-width="1.5"
+                            fill="none" />
+                        <circle cx="53" cy="70" r="1.5" fill="#4ECDC4" />
+                        <rect x="32" y="38" width="8" height="8" stroke="url(#grad2)" stroke-width="1.5" fill="#4ECDC4"
+                            opacity="0.3" />
+                        <rect x="45" y="38" width="8" height="8" stroke="url(#grad2)" stroke-width="1.5" fill="#4ECDC4"
+                            opacity="0.3" />
+                        <rect x="58" y="38" width="8" height="8" stroke="url(#grad2)" stroke-width="1.5" fill="#4ECDC4"
+                            opacity="0.3" />
+                        <rect x="32" y="52" width="8" height="8" stroke="url(#grad2)" stroke-width="1.5" fill="#4ECDC4"
+                            opacity="0.3" />
+                        <rect x="58" y="52" width="8" height="8" stroke="url(#grad2)" stroke-width="1.5" fill="#4ECDC4"
+                            opacity="0.3" />
+                        <line x1="50" y1="15" x2="50" y2="25" stroke="url(#grad2)" stroke-width="1.5" />
+                        <rect x="50" y="22" width="8" height="5" fill="#FF6B6B" />
+                    </svg>
+                </div>
+                <h3 class="feature-title">5-Star Accommodation</h3>
+                <p class="feature-description">Stay in premium hotels in Mecca and Medina, carefully selected for
+                    comfort and proximity to holy sites.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewbox="0 0 100 100" width="70" height="70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <lineargradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#FFC107;stop-opacity:1" />
+                            </lineargradient>
+                        </defs> <!-- Book/Guide icon - colorful -->
+                        <path d="M 30 20 L 35 20 L 35 70 L 30 75 Z" stroke="url(#grad3)" stroke-width="2" fill="none"
+                            stroke-linejoin="miter" />
+                        <path d="M 70 20 L 65 20 L 65 70 L 70 75 Z" stroke="url(#grad3)" stroke-width="2" fill="none"
+                            stroke-linejoin="miter" />
+                        <rect x="35" y="20" width="30" height="50" stroke="url(#grad3)" stroke-width="2" fill="none" />
+                        <line x1="40" y1="30" x2="60" y2="30" stroke="url(#grad3)" stroke-width="1" />
+                        <line x1="40" y1="38" x2="60" y2="38" stroke="url(#grad3)" stroke-width="1" />
+                        <line x1="40" y1="46" x2="60" y2="46" stroke="url(#grad3)" stroke-width="1" />
+                        <line x1="40" y1="54" x2="60" y2="54" stroke="url(#grad3)" stroke-width="1" />
+                        <path d="M 57 20 L 57 35 L 54 32 L 51 35 L 51 20" stroke="url(#grad3)" stroke-width="1.5"
+                            fill="#FF6B6B" />
+                    </svg>
+                </div>
+                <h3 class="feature-title">Expert Religious Guides</h3>
+                <p class="feature-description">Learn from knowledgeable Islamic scholars and experienced guides
+                    throughout your sacred pilgrimage.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewbox="0 0 100 100" width="70" height="70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <lineargradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#9C27B0;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#7B1FA2;stop-opacity:1" />
+                            </lineargradient>
+                        </defs> <!-- Headset icon - colorful -->
+                        <path d="M 30 40 Q 30 25 50 25 Q 70 25 70 40" stroke="url(#grad4)" stroke-width="2.5"
+                            fill="none" stroke-linecap="round" />
+                        <circle cx="30" cy="50" r="12" stroke="url(#grad4)" stroke-width="2" fill="none" />
+                        <circle cx="70" cy="50" r="12" stroke="url(#grad4)" stroke-width="2" fill="none" />
+                        <circle cx="30" cy="50" r="6" stroke="url(#grad4)" stroke-width="1.5" fill="#9C27B0"
+                            opacity="0.4" />
+                        <circle cx="70" cy="50" r="6" stroke="url(#grad4)" stroke-width="1.5" fill="#9C27B0"
+                            opacity="0.4" />
+                        <path d="M 30 60 L 28 72" stroke="url(#grad4)" stroke-width="2" stroke-linecap="round" />
+                        <circle cx="28" cy="75" r="4" stroke="url(#grad4)" stroke-width="1.5" fill="#FF6B6B" />
+                        <path d="M 75 45 Q 78 45 78 50 Q 78 55 75 55" stroke="url(#grad4)" stroke-width="1.5" />
+                        <path d="M 80 40 Q 85 40 85 50 Q 85 60 80 60" stroke="url(#grad4)" stroke-width="1.5" />
+                    </svg>
+                </div>
+                <h3 class="feature-title">24/7 Support</h3>
+                <p class="feature-description">Round-the-clock customer support in multiple languages to assist you
+                    anytime, anywhere.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewbox="0 0 100 100" width="70" height="70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <lineargradient id="grad5" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#00E676;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#00C853;stop-opacity:1" />
+                            </lineargradient>
+                        </defs> <!-- Shield icon - colorful -->
+                        <path d="M 50 12 L 78 28 L 78 52 C 78 72 50 88 50 88 C 50 88 22 72 22 52 L 22 28 Z"
+                            stroke="url(#grad5)" stroke-width="2" fill="url(#grad5)" opacity="0.15"
+                            stroke-linejoin="miter" />
+                        <path d="M 50 30 L 62 50 L 50 70 L 38 50 Z" stroke="url(#grad5)" stroke-width="1.5"
+                            fill="none" />
+                        <path d="M 42 50 L 48 58 L 62 40" stroke="url(#grad5)" stroke-width="3" stroke-linecap="round"
+                            stroke-linejoin="round" fill="none" />
+                        <line x1="36" y1="35" x2="64" y2="35" stroke="url(#grad5)" stroke-width="1" />
+                    </svg>
+                </div>
+                <h3 class="feature-title">Secure &amp; Safe</h3>
+                <p class="feature-description">Your safety and security are our top priority with full travel insurance
+                    coverage included.</p>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- UPCOMING DEPARTURES SECTION -->
+    <section class="upcoming-departures" id="departures">
+        <div class="section-header">
+            <div class="section-subtitle"><i class="fas fa-calendar-alt"></i> LIMITED SLOTS
+            </div>
+            <h2 class="section-title">Upcoming <span>Departures</span></h2>
+            <p class="section-description">Secure your spiritual journey now! Limited seats available in our carefully
+                planned batches.</p>
+        </div>
+        <div id="departuresContainer" class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+            <!-- Departure Card 1 -->
+            <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition">
+                <div class="p-1" style="background: linear-gradient(135deg, #0d5d3a 0%, #0a4428 100%);">
+                    <div class="bg-white p-6">
+                        <div class="text-center mb-4">
+                            <div class="text-5xl mb-2">🕋</div>
+                            <h3 class="text-2xl font-bold" style="color: #0d5d3a;">15 Jan 2026</h3>
+                            <p class="text-sm text-gray-600">10 Days Umrah</p>
+                        </div>
+                        <div class="space-y-2 mb-4">
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-600">Airline:</span>
+                                <span class="font-semibold">Saudia</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-600">Price:</span>
+                                <span class="font-bold" style="color: #8b6914;">₹1,85,000</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-600">Seats Left:</span>
+                                <span class="font-bold text-red-600">Only 5!</span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-red-600 h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-1">85% Booked</p>
+                        </div>
+                        <button onclick="scrollToSection('booking-form')" class="btn-primary w-full text-sm">Book
+                            Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Departure Card 2 -->
+            <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition">
+                <div class="p-1" style="background: linear-gradient(135deg, #8b6914 0%, #6d5310 100%);">
+                    <div class="bg-white p-6">
+                        <div class="text-center mb-4">
+                            <div class="text-5xl mb-2">🕋</div>
+                            <h3 class="text-2xl font-bold" style="color: #0d5d3a;">05 Feb 2026</h3>
+                            <p class="text-sm text-gray-600">14 Days Umrah</p>
+                        </div>
+                        <div class="space-y-2 mb-4">
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-600">Airline:</span>
+                                <span class="font-semibold">Saudia</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-600">Price:</span>
+                                <span class="font-bold" style="color: #8b6914;">₹2,15,000</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-600">Seats Left:</span>
+                                <span class="font-bold text-orange-600">12</span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-orange-600 h-2 rounded-full" style="width: 60%"></div>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-1">60% Booked</p>
+                        </div>
+                        <button onclick="scrollToSection('booking-form')" class="btn-primary w-full text-sm">Book
+                            Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Departure Card 3 -->
+            <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition">
+                <div class="p-1" style="background: linear-gradient(135deg, #0d5d3a 0%, #8b6914 100%);">
+                    <div class="bg-white p-6">
+                        <div class="text-center mb-4">
+                            <div class="text-5xl mb-2">🕋</div>
+                            <h3 class="text-2xl font-bold" style="color: #0d5d3a;">20 Mar 2026</h3>
+                            <p class="text-sm text-gray-600">13 Days Umrah</p>
+                        </div>
+                        <div class="space-y-2 mb-4">
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-600">Airline:</span>
+                                <span class="font-semibold">Saudia</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-600">Price:</span>
+                                <span class="font-bold" style="color: #8b6914;">₹2,05,000</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-600">Seats Left:</span>
+                                <span class="font-bold text-green-600">18</span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-green-600 h-2 rounded-full" style="width: 40%"></div>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-1">40% Booked</p>
+                        </div>
+                        <button onclick="scrollToSection('booking-form')" class="btn-primary w-full text-sm">Book
+                            Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Departure Card 4 -->
+            <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition">
+                <div class="p-1" style="background: linear-gradient(135deg, #0a4428 0%, #0d5d3a 100%);">
+                    <div class="bg-white p-6">
+                        <div class="text-center mb-4">
+                            <div class="text-5xl mb-2">🕋</div>
+                            <h3 class="text-2xl font-bold" style="color: #0d5d3a;">10 Apr 2026</h3>
+                            <p class="text-sm text-gray-600">14 Days Umrah</p>
+                        </div>
+                        <div class="space-y-2 mb-4">
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-600">Airline:</span>
+                                <span class="font-semibold">Saudia</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-600">Price:</span>
+                                <span class="font-bold" style="color: #8b6914;">₹2,25,000</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-600">Seats Left:</span>
+                                <span class="font-bold text-green-600">25</span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-green-600 h-2 rounded-full" style="width: 25%"></div>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-1">25% Booked</p>
+                        </div>
+                        <button onclick="scrollToSection('booking-form')" class="btn-primary w-full text-sm">Book
+                            Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="departures-footer" style="margin-top:15px;padding: 10px;">
+            <p class="footer-note"><i class="fas fa-info-circle"></i> Prices include flights, accommodation, meals, and
+                guided tours</p>
+
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="testimonials-section" id="testimonials" style="padding-bottom: 40px;">
+        <div class="section-header">
+            <div class="section-subtitle"><i class="fas fa-quote-left"></i> PILGRIM STORIES
+            </div>
+            <h2 class="section-title">What Our <span>Pilgrims Say</span></h2>
+            <p class="section-description">Join thousands of satisfied pilgrims who have completed their spiritual
+                journey with FAIZY TOURS &amp; TRAVELS.</p>
+        </div>
+
+        <div class="testimonials-container" id="testimonialsContainer">
+            <!-- Testimonial cards will be populated by JavaScript -->
+        </div>
+        <div style="text-align:center; ;margin-top: 10px;">
+            <button onclick="slideLeft()" class="slider-btn">⬅ Prev</button>
+            <button onclick="slideRight()" class="slider-btn">Next ➡</button>
+        </div>
+
+    </section>
+
+    <!--  /* Five Pillar SECTOIN */-->
+    <section class="pillars-section" id="pillars">
+        <div class="section-header">
+            <div class="section-subtitle"><i class="fas fa-mosque"></i> SPIRITUAL FOUNDATION
+            </div>
+            <h2 class="section-title" style="color: whitesmoke;">The <span>Five Pillars</span> of Islam</h2>
+            <p class="section-description" style="color: wheat;">The fundamental principles of Islamic faith and
+                practice that guide every
+                Muslim's spiritual journey.</p>
+        </div>
+        <div class="pillars-container" id="pillarsContainer"></div>
+        <div class="pillars-footer">
+            <div class="pillar-insight"><i class="fas fa-lightbulb"></i>
+                <div>
+                    <h3>Understanding the Five Pillars</h3>
+                    <p>These five pillars form the foundation of Muslim life, connecting believers to Allah and creating
+                        a community of faith. Hajj is one of these sacred pillars, representing the ultimate spiritual
+                        journey.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- FAQ -->
+    <section class="faq-section" id="faq">
+        <div class="faq-container">
+            <div class="faq-header">
+                <div class="faq-subtitle"><i class="fas fa-question-circle"></i> HAVE QUESTIONS?
+                </div>
+                <h2 class="faq-title">Frequently Asked Questions</h2>
+                <p class="faq-description">Common questions about Hajj &amp; Umrah</p>
+            </div>
+            <div id="faqList"></div>
+            <div class="faq-contact">
+                <h3 class="faq-contact-title">Still Have Questions?</h3>
+                <p class="faq-contact-description">Our team is here to help you 24/7. Contact us via WhatsApp or fill
+                    the enquiry form.</p>
+                <div class="faq-contact-buttons">
+                    <button class="btn-contact btn-whatsapp" onclick="openWhatsApp()">
+                        <i class="fab fa-whatsapp"></i> WhatsApp Us
+                    </button>
+                    <button class="btn-contact btn-enquiry" onclick="window.location.href='contact.html'"> <i
+                            class="fas fa-envelope"></i>
+                        Send Enquiry </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer-section">
+        <div class="footer-container"><!-- About Section -->
+            <div class="footer-column">
+                <h3 class="footer-title">About Us</h3>
+                <p class="footer-text">We are dedicated to making your Hajj and Umrah journey memorable with
+                    professional guidance and spiritual support.</p>
+                <div class="social-icons"><a href="#" class="social-icon" title="Facebook"><i
+                            class="fab fa-facebook-f"></i></a> <a href="#" class="social-icon" title="Twitter"><i
+                            class="fab fa-twitter"></i></a> <a href="#" class="social-icon" title="Instagram"><i
+                            class="fab fa-instagram"></i></a>
+
+                    <a href="javascript:void(0)" onclick="openWhatsApp()" class="social-icon" title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+
+                </div>
+            </div><!-- Quick Links -->
+            <div class="footer-column">
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="aboutus.html">About Us</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div><!-- Services -->
+            <div class="footer-column">
+                <h3 class="footer-title">Services</h3>
+                <ul class="footer-links">
+                    <li><a href="#umrah">Umrah Packages</a></li>
+                    <li><a href="#hajj">Hajj Packages</a></li>
+                    <li><a href="#visa">Visa Assistance</a></li>
+                    <li><a href="#guide">Expert Guides</a></li>
+                </ul>
+            </div><!-- Contact Info -->
+            <div class="footer-column">
+                <h3 class="footer-title">Contact Info</h3>
+                <div class="contact-item"><i class="fas fa-map-marker-alt"></i> <span>Lucknow, Uttar Pradesh,
+                        India</span>
+                </div>
+                <div class="contact-item"><i class="fas fa-phone"></i> <span>+91 9709701986</span>
+                </div>
+                <div class="contact-item"><i class="fas fa-envelope"></i> <span>prince.ali9709@gmail.com</span>
+                </div>
+            </div>
+        </div><!-- Bottom Section -->
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p>© 2026 Hajj &amp; Umrah Services. All rights reserved.</p>
+                <div class="footer-bottom-links"><a href="#privacy">Privacy Policy</a> <span class="divider">|</span> <a
+                        href="#terms">Terms &amp; Conditions</a> <span class="divider">|</span> <a
+                        href="#sitemap">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Update live clock every second
+        function updateClock() {
+            const now = new Date();
+            let hours = now.getHours();
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+
+            hours = hours % 12 || 12;
+            hours = String(hours).padStart(2, '0');
+
+            document.querySelector('.clock-time-header').textContent = `${hours}:${minutes}:${seconds}`;
+            document.querySelector('.clock-ampm-header').textContent = ampm;
+        }
+
+        // Update clock immediately and every second
+        updateClock();
+        setInterval(updateClock, 1000);
+
+        document.getElementById('languageSelector').addEventListener('change', function (e) {
+            const lang = e.target.value;
+            updateLanguage(lang);
+        });
+
+        // Get user's current location and fetch prayer times
+        function getPrayerTimes() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const { latitude, longitude } = position.coords;
+                        fetchLocationName(latitude, longitude);
+                        fetchPrayerTimesAPI(latitude, longitude);
+                    },
+                    (error) => {
+                        console.log('Location access denied, using Lucknow default');
+                        displayLocationDate('Lucknow, UP', 26.8467, 80.9462);
+                        fetchPrayerTimesAPI(26.8467, 80.9462);
+                    }
+                );
+            } else {
+                console.log('Geolocation not supported, using Lucknow default');
+                displayLocationDate('Lucknow, UP', 26.8467, 80.9462);
+                fetchPrayerTimesAPI(26.8467, 80.9462);
+            }
+        }
+
+        // Fetch location name from coordinates using reverse geocoding
+        function fetchLocationName(latitude, longitude) {
+            fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`)
+                .then(response => response.json())
+                .then(data => {
+                    const city = data.address.city || data.address.town || data.address.village || 'Unknown Location';
+                    const state = data.address.state || '';
+                    const locationName = state ? `${city}, ${state}` : city;
+                    displayLocationDate(locationName, latitude, longitude);
+                })
+                .catch(error => {
+                    console.log('Could not fetch location name');
+                    displayLocationDate('Your Location', latitude, longitude);
+                });
+        }
+
+        // Display date and location
+        function displayLocationDate(locationName, latitude, longitude) {
+            const today = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const dateString = today.toLocaleDateString('en-US', options);
+
+            document.getElementById('locationDate').innerHTML =
+                `📍 ${locationName} | 📅 ${dateString}`;
+        }
+
+        // Fetch prayer times from Aladhan API (free, no key needed)
+        function fetchPrayerTimesAPI(latitude, longitude) {
+            const today = new Date();
+            const date = `${today.getDate()}-${today.getMonth() + 1}-${today.getFullYear()}`;
+
+            fetch(`https://api.aladhan.com/v1/timings/${date}?latitude=${latitude}&longitude=${longitude}&method=2`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.code === 200) {
+                        displayPrayerTimes(data.data.timings);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching prayer times:', error);
+                    displayPrayerTimes({
+                        Fajr: '05:30',
+                        Dhuhr: '12:30',
+                        Asr: '16:45',
+                        Maghrib: '18:45',
+                        Isha: '20:15'
+                    });
+                });
+        }
+
+        function displayPrayerTimes(timings) {
+
+            const prayers = [
+                { name: 'Fajr', time: timings.Fajr },
+                { name: 'Zuhr', time: timings.Dhuhr },
+                { name: 'Asr', time: timings.Asr },
+                { name: 'Maghrib', time: timings.Maghrib },
+                { name: 'Isha', time: timings.Isha }
+            ];
+
+            const container = document.getElementById('prayerTimesContainer');
+            container.innerHTML = '';
+
+            const now = new Date();
+            let nextPrayerFound = false;
+            let prayerElements = [];
+
+            prayers.forEach((prayer) => {
+
+                const prayerTime = new Date();
+                const [hours, minutes] = prayer.time.split(':');
+
+                prayerTime.setHours(parseInt(hours), parseInt(minutes), 0);
+
+                const isPastPrayer = now > prayerTime;
+                const isNextPrayer = !isPastPrayer && !nextPrayerFound;
+
+                if (isNextPrayer) nextPrayerFound = true;
+
+                const prayerDiv = document.createElement('div');
+                prayerDiv.className = `prayer-item ${isNextPrayer ? 'next' : ''}`;
+
+                prayerDiv.innerHTML = `
+            <div class="prayer-name">${prayer.name}</div>
+            <div class="prayer-time">${prayer.time}</div>
+        `;
+
+                container.appendChild(prayerDiv);
+                prayerElements.push(prayerDiv);
+            });
+
+            /* ⭐ FIX: if all prayers passed → highlight Fajr */
+            if (!nextPrayerFound && prayerElements.length > 0) {
+                prayerElements[0].classList.add("next");
+            }
+
+            /* Status text */
+            const statusText = document.getElementById('prayerStatus');
+
+            const nextPrayer = prayers.find(p => {
+                const pt = new Date();
+                const [h, m] = p.time.split(':');
+                pt.setHours(parseInt(h), parseInt(m), 0);
+                return now <= pt;
+            });
+
+            if (nextPrayer) {
+                statusText.textContent = `Next Prayer: ${nextPrayer.name} at ${nextPrayer.time}`;
+            } else {
+                statusText.textContent = `Next Prayer: Fajr at ${prayers[0].time}`;
+            }
+        }
+
+
+        // Load prayer times on page load
+        window.addEventListener('load', getPrayerTimes);
+
+        // Dynamic typing for "Hajj & Umrah with FAIZY TOURS"
+        const dynamicText = "Hajj & Umrah with FAIZY TOURS";
+        let dynamicIndex = 0;
+        let isDynamicDeleting = false;
+        let dynamicTypingSpeed = 80;
+        let dynamicDeleteSpeed = 50;
+        let dynamicPauseDuration = 3000;
+        let isDynamicPaused = false;
+
+        function typeDynamicText() {
+            const titleElement = document.getElementById('dynamicTitle');
+
+            if (!isDynamicPaused && !isDynamicDeleting && dynamicIndex < dynamicText.length) {
+                // Typing
+                titleElement.textContent += dynamicText[dynamicIndex];
+                dynamicIndex++;
+                setTimeout(typeDynamicText, dynamicTypingSpeed);
+            } else if (!isDynamicDeleting && dynamicIndex === dynamicText.length && !isDynamicPaused) {
+                // Pause at end
+                isDynamicPaused = true;
+                setTimeout(() => {
+                    isDynamicPaused = false;
+                    isDynamicDeleting = true;
+                    typeDynamicText();
+                }, dynamicPauseDuration);
+            } else if (isDynamicDeleting && dynamicIndex > 0 && !isDynamicPaused) {
+                // Deleting
+                titleElement.textContent = dynamicText.substring(0, dynamicIndex - 1);
+                dynamicIndex--;
+                setTimeout(typeDynamicText, dynamicDeleteSpeed);
+            } else if (isDynamicDeleting && dynamicIndex === 0 && !isDynamicPaused) {
+                // Start typing again
+                isDynamicDeleting = false;
+                setTimeout(typeDynamicText, 500);
+            }
+        }
+
+        // Start dynamic typing animation when page loads
+        setTimeout(() => {
+            typeDynamicText();
+        }, 500);
+
+        function updateLanguage(lang) {
+            const translations = {
+                en: {
+                    location: 'Lucknow, Uttar Pradesh, India',
+                    phone: '+91 9709701986',
+                    email: 'prince.ali9709@gmail.com'
+                },
+                hi: {
+                    location: 'लुकनौ, उत्तर प्रदेश, भारत',
+                    phone: '+91 9709701986',
+                    email: 'prince.ali9709@gmail.com'
+                },
+                ur: {
+                    location: 'لکھنؤ، اترپردیش، باریت',
+                    phone: '+91 9709701986',
+                    email: 'prince.ali9709@gmail.com'
+                },
+                ar: {
+                    location: 'لكھنؤ، أوتار بریڈش، الهنڈ',
+                    phone: '+91 9709701986',
+                    email: 'prince.ali9709@gmail.com'
+                }
+            };
+
+            const t = translations[lang];
+            document.querySelectorAll('.header-item')[0].innerHTML = `<i class="fas fa-map-marker-alt"></i><span>${t.location}</span>`;
+            document.querySelectorAll('.header-item')[1].innerHTML = `<i class="fas fa-phone"></i><a href="tel:+919709701986">${t.phone}</a>`;
+            document.querySelectorAll('.header-item')[2].innerHTML = `<i class="fas fa-envelope"></i><a href="mailto:prince.ali9709@gmail.com">${t.email}</a>`;
+        }
+
+        // Hero Banner Buttons
+        document.querySelectorAll('.hero-btn-primary')[0].addEventListener('click', function () {
+            window.location.href = "contact.html";
+        });
+
+        document.querySelectorAll('.hero-btn-secondary')[0].addEventListener('click', function () {
+            window.location.href = 'tel:+919709701986';
+        });
+
+        // Mobile Book Now Button
+        document.getElementById('bookNowBtn').addEventListener('click', function () {
+            window.location.href = "contact.html";
+        });
+
+        document.getElementById('mobileBookBtn').addEventListener('click', function (e) {
+            e.preventDefault();
+            window.location.href = "contact.html";
+        });
+
+        // Why Choose Us Section - removed button
+
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburgerBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburger.addEventListener('click', function () {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', function () {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // Upcoming Departures Data
+        const departuresData = [
+            {
+                id: 1,
+                startDate: '15 Feb 2026',
+                endDate: '28 Feb 2026',
+                days: 14,
+                airline: 'Emirates',
+                price: '₹1,45,000',
+                seatsLeft: 5,
+                totalSeats: 30,
+                popular: false
+            },
+            {
+                id: 2,
+                startDate: '08 Mar 2026',
+                endDate: '22 Mar 2026',
+                days: 15,
+                airline: 'Turkish Airlines',
+                price: '₹1,52,000',
+                seatsLeft: 2,
+                totalSeats: 25,
+                popular: true
+            },
+            {
+                id: 3,
+                startDate: '20 Apr 2026',
+                endDate: '04 May 2026',
+                days: 15,
+                airline: 'Qatar Airways',
+                price: '₹1,48,500',
+                seatsLeft: 18,
+                totalSeats: 32,
+                popular: false
+            }
+        ];
+
+        function getSeatsStatus(seatsLeft) {
+            if (seatsLeft <= 5) return 'low';
+            if (seatsLeft <= 15) return 'medium';
+            return 'high';
+        }
+
+        function renderDepartures() {
+            const container = document.getElementById('departuresContainer');
+            container.innerHTML = '';
+
+            departuresData.forEach(departure => {
+                const seatsStatus = getSeatsStatus(departure.seatsLeft);
+                const occupancyPercent = ((departure.totalSeats - departure.seatsLeft) / departure.totalSeats) * 100;
+
+                const card = document.createElement('div');
+                card.className = `departure-card ${departure.popular ? 'popular' : ''}`;
+
+                card.innerHTML = `
+                    ${departure.popular ? `<div class="popular-badge"><i class="fas fa-star"></i> Most Popular</div>` : ''}
+                    
+                    <div class="departure-header">
+                        <div class="departure-dates">
+                            <div class="departure-dates-label">Departure Dates</div>
+                            <div class="departure-dates-range">${departure.startDate} - ${departure.endDate}</div>
+                        </div>
+                        <div class="departure-duration">
+                            <div class="departure-duration-label">Duration</div>
+                            <div class="departure-days">${departure.days} Days</div>
+                        </div>
+                    </div>
+
+                    <div class="departure-details">
+                        <div class="departure-detail-row">
+                            <div class="detail-label">
+                                <i class="fas fa-plane"></i>
+                                Airline
+                            </div>
+                            <div class="detail-value">
+                                <div class="airline-name">
+                                    <span class="airline-badge">${departure.airline}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="departure-detail-row">
+                            <div class="detail-label">
+                                <i class="fas fa-tag"></i>
+                                Price per Person
+                            </div>
+                            <div class="detail-value">
+                                <span class="price-value">${departure.price}</span>
+                            </div>
+                        </div>
+
+                        <div class="departure-detail-row">
+                            <div class="detail-label">
+                                <i class="fas fa-chair"></i>
+                                Seats Available
+                            </div>
+                            <div class="detail-value">
+                                <div class="seats-status">
+                                    <span class="seats-badge ${seatsStatus}">${departure.seatsLeft} Left</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="progress-section">
+                            <div class="progress-label">
+                                <span class="progress-label-text">Booking Progress</span>
+                                <span class="progress-percentage">${Math.round(occupancyPercent)}% Booked</span>
+                            </div>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar-fill" style="width: ${occupancyPercent}%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="departure-button" data-departure-id="${departure.id}">
+                        <i class="fas fa-check-circle"></i>
+                        Book Now
+                    </button>
+                `;
+
+                container.appendChild(card);
+            });
+
+            // Add event listeners to Book Now buttons
+            document.querySelectorAll('.departure-button').forEach(button => {
+                button.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    window.location.href = "contact.html";
+                });
+            });
+        }
+
+        // Render departures when page loads
+        window.addEventListener('load', function () {
+            renderDepartures();
+        });
+    </script>
+
+    <script>
+        // Testimonials Data
+        const testimonialsData = [
+            {
+                id: 1,
+                name: 'Fatima Ahmed',
+                location: 'Cairo, Egypt',
+                avatar: 'F',
+                rating: 5,
+                text: 'An absolutely transformative experience! FAIZY TOURS made my Hajj journey smooth and spiritually fulfilling. The guides were knowledgeable, the accommodation was excellent, and every detail was perfectly arranged.',
+                verified: true
+            },
+            {
+                id: 2,
+                name: 'Muhammad Hassan',
+                location: 'Dubai, UAE',
+                avatar: 'M',
+                rating: 5,
+                text: 'I completed my Umrah with FAIZY TOURS and couldn\'t be happier. The entire team went above and beyond to ensure my comfort. Professional, caring, and truly devoted to pilgrims\' needs. Highly recommended!',
+                verified: true
+            },
+            {
+                id: 3,
+                name: 'Aisha Khan',
+                location: 'London, UK',
+                avatar: 'A',
+                rating: 5,
+                text: 'This was my first Hajj pilgrimage and FAIZY TOURS made it unforgettable. From visa assistance to guided rituals, everything was handled with utmost care. My family felt safe and supported throughout.',
+                verified: true
+            },
+            {
+                id: 4,
+                name: 'Ibrahim Ahmed',
+                location: 'Toronto, Canada',
+                avatar: 'I',
+                rating: 5,
+                text: 'Outstanding service from start to finish! The team\'s dedication to making our pilgrimage meaningful was evident. Hotels were clean, food was authentic, and the spiritual guidance was deeply enriching.',
+                verified: true
+            },
+            {
+                id: 5,
+                name: 'Noor Malik',
+                location: 'Sydney, Australia',
+                avatar: 'N',
+                rating: 5,
+                text: 'FAIZY TOURS exceeded all my expectations for my Umrah. The attention to detail, friendly staff, and excellent coordination made my spiritual journey truly special. I\'ll definitely book with them again!',
+                verified: true
+            },
+            {
+                id: 6,
+                name: 'Rashid Abdullah',
+                location: 'Jeddah, Saudi Arabia',
+                avatar: 'R',
+                rating: 5,
+                text: 'As a repeat customer, I can confidently say FAIZY TOURS is the best choice for Hajj and Umrah. Their expertise, reliability, and compassion towards pilgrims is unmatched. Worth every penny!',
+                verified: true
+            }
+        ];
+
+        function renderTestimonials() {
+            const container = document.getElementById('testimonialsContainer');
+            container.innerHTML = '';
+
+            testimonialsData.forEach(testimonial => {
+                const starsHTML = Array.from({ length: 5 }, (_, i) =>
+                    `<i class="fas fa-star star" style="${i < testimonial.rating ? 'color: #ffc107;' : 'color: rgba(212, 165, 116, 0.3);'}"></i>`
+                ).join('');
+
+                const card = document.createElement('div');
+                card.className = 'testimonial-card';
+
+                card.innerHTML = `
+                    <div class="testimonial-rating">
+                        ${starsHTML}
+                        <span class="rating-text">${testimonial.rating}.0</span>
+                    </div>
+
+                    <p class="testimonial-text">${testimonial.text}</p>
+
+                    <div class="testimonial-author">
+                        <div class="author-avatar">${testimonial.avatar}</div>
+                        <div class="author-info">
+                            <div class="author-name">${testimonial.name}</div>
+                            <div class="author-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                ${testimonial.location}
+                            </div>
+                        </div>
+                        ${testimonial.verified ? `<div class="verified-badge"><i class="fas fa-check-circle"></i> Verified</div>` : ''}
+                    </div>
+                `;
+
+                container.appendChild(card);
+            });
+        }
+
+        // Render when page loads
+        window.addEventListener('load', function () {
+            renderTestimonials();
+        });
+
+        const slider = document.getElementById("testimonialsContainer");
+
+        let autoSlide;
+
+        /* Slide width = 1 card */
+        function getCardWidth() {
+            const card = document.querySelector(".testimonial-card");
+            const gap = 24;
+            return card.offsetWidth + gap;
+        }
+
+        function slideRight() {
+            const maxScroll = slider.scrollWidth - slider.clientWidth;
+
+            if (slider.scrollLeft + getCardWidth() >= maxScroll) {
+                slider.scrollTo({ left: 0, behavior: "smooth" });
+            } else {
+                slider.scrollBy({ left: getCardWidth(), behavior: "smooth" });
+            }
+        }
+
+        function slideLeft() {
+            if (slider.scrollLeft <= 0) {
+                slider.scrollTo({ left: slider.scrollWidth, behavior: "smooth" });
+            } else {
+                slider.scrollBy({ left: -getCardWidth(), behavior: "smooth" });
+            }
+        }
+
+        /* ===== AUTO SLIDE ===== */
+        function startAutoSlide() {
+            autoSlide = setInterval(slideRight, 3000);
+        }
+
+        function stopAutoSlide() {
+            clearInterval(autoSlide);
+        }
+
+        /* Pause on hover */
+        slider.addEventListener("mouseenter", stopAutoSlide);
+        slider.addEventListener("mouseleave", startAutoSlide);
+
+        /* Start auto sliding */
+        startAutoSlide();
+
+
+    </script>
+
+    <script>
+        const pillarsData = [
+            {
+                id: 1,
+                number: 1,
+                title: 'Shahadah',
+                arabic: 'الشهادة',
+                icon: 'fas fa-heart',
+                description: 'The declaration of faith - bearing witness that there is no god but Allah and Muhammad is His messenger.',
+                details: [
+                    'Declaration of monotheism',
+                    'Cornerstone of Islamic faith',
+                    'Gateway to Islam'
+                ]
+            },
+            {
+                id: 2,
+                number: 2,
+                title: 'Salah',
+                arabic: 'الصلاة',
+                icon: 'fas fa-hands-praying',
+                description: 'The five daily prayers performed at prescribed times, connecting believers directly to Allah throughout the day.',
+                details: [
+                    'Five times daily',
+                    'Physical & spiritual cleansing',
+                    'Direct connection to Allah'
+                ]
+            },
+            {
+                id: 3,
+                number: 3,
+                title: 'Zakat',
+                arabic: 'الزكاة',
+                icon: 'fas fa-hand-holding-heart',
+                description: 'Almsgiving and obligatory charity purifying wealth and helping the poor and those in need.',
+                details: [
+                    'Mandatory charity',
+                    'Wealth purification',
+                    'Social responsibility'
+                ]
+            },
+            {
+                id: 4,
+                number: 4,
+                title: 'Hajj',
+                arabic: 'الحج',
+                icon: 'fas fa-kaaba',
+                description: 'The pilgrimage to Mecca, a once-in-a-lifetime spiritual journey fulfilling a fundamental pillar of Islam.',
+                details: [
+                    'Ultimate spiritual journey',
+                    'Performed during Dhul-Hijjah',
+                    'Unites Muslims worldwide'
+                ]
+            },
+            {
+                id: 5,
+                number: 5,
+                title: 'Fasting',
+                arabic: 'الصيام',
+                icon: 'fas fa-moon',
+                description: 'Observing the fast during Ramadan, abstaining from food and drink during daylight hours for spiritual reflection.',
+                details: [
+                    'Holy month of Ramadan',
+                    'Self-discipline & empathy',
+                    'Spiritual purification'
+                ]
+            }
+        ];
+
+        function slidePillars(direction) {
+            const slider = document.getElementById("pillarsContainer");
+            const card = document.querySelector(".pillar-card");
+
+            if (!card) return;
+
+            const gap = 25;
+            const scrollAmount = card.offsetWidth + gap;
+
+            slider.scrollBy({
+                left: direction * scrollAmount,
+                behavior: "smooth"
+            });
+        }
+
+
+        function renderPillars() {
+            const container = document.getElementById('pillarsContainer');
+            container.innerHTML = '';
+
+            pillarsData.forEach(pillar => {
+                const card = document.createElement('div');
+                card.className = 'pillar-card';
+
+                const detailsHTML = pillar.details.map(detail =>
+                    `<div class="detail-item"><i class="fas fa-check"></i><span>${detail}</span></div>`
+                ).join('');
+
+                card.innerHTML = `
+    <div class="pillar-icon">
+        <i class="${pillar.icon}"></i>
+    </div>
+
+    <h3 class="pillar-title">${pillar.title}</h3>
+    <div class="pillar-arabic">${pillar.arabic}</div>
+
+    <hr style="border:0;height:1px;background:rgba(212,165,116,0.3);margin:12px 0;">
+
+    <p class="pillar-description">${pillar.description}</p>
+
+    <div class="pillar-details">
+        ${detailsHTML}
+    </div>
+`;
+
+
+                container.appendChild(card);
+            });
+        }
+
+        window.addEventListener('load', renderPillars);
+
+        /* ===== AUTO SLIDE FOR PILLARS (FIXED) ===== */
+
+        let pillarAutoSlide;
+
+        function getPillarWidth() {
+            const card = document.querySelector(".pillar-card");
+            if (!card) return 0;
+            return card.offsetWidth + 40;
+
+        }
+
+        function autoSlidePillars() {
+            const slider = document.getElementById("pillarsContainer");
+            if (!slider) return;
+
+            const maxScroll = slider.scrollWidth - slider.clientWidth;
+
+            if (slider.scrollLeft + getPillarWidth() >= maxScroll) {
+                slider.scrollTo({ left: 0, behavior: "smooth" });
+            } else {
+                slider.scrollBy({ left: getPillarWidth(), behavior: "smooth" });
+            }
+        }
+
+        function startPillarAutoSlide() {
+            stopPillarAutoSlide();
+            pillarAutoSlide = setInterval(autoSlidePillars, 3500);
+        }
+
+        function stopPillarAutoSlide() {
+            clearInterval(pillarAutoSlide);
+        }
+
+        /* WAIT until pillars rendered */
+        window.addEventListener("load", () => {
+
+            const pillarSlider = document.getElementById("pillarsContainer");
+
+            if (!pillarSlider) return;
+
+            pillarSlider.addEventListener("mouseenter", stopPillarAutoSlide);
+            pillarSlider.addEventListener("mouseleave", startPillarAutoSlide);
+
+            startPillarAutoSlide();
+        });
+
+    </script>
+
+    <script>
+        const faqData = [
+            {
+                question: 'What documents are required for Umrah visa?',
+                answer: 'You will need a valid passport with at least 6 months validity, a completed visa application form, recent passport-sized photographs, proof of accommodation booking, return flight tickets, and bank statements showing financial capability. Our team can assist you with the complete documentation process.'
+            },
+            {
+                question: 'How long does visa processing take?',
+                answer: 'Standard visa processing typically takes 5-7 working days. However, expedited processing is available if needed, which can reduce this time to 2-3 working days. The exact timeline may vary depending on the season and visa center workload.'
+            },
+            {
+                question: 'What is included in the package price?',
+                answer: 'Our packages include flights, accommodation, ground transportation, guided tours of sacred sites, meals (breakfast and dinner), 24/7 customer support, and travel insurance. Some premium packages also include additional services like airport transfers and optional tours to other Islamic landmarks.'
+            },
+            {
+                question: 'How far are the hotels from Haram?',
+                answer: 'Our hotel selections are strategically located to ensure convenience and accessibility. Budget hotels are typically within 1-2 km from Masjid al-Haram, while premium properties are often within walking distance. You can view the exact hotel locations on our website before confirming your booking.'
+            },
+            {
+                question: 'Can I pay in installments?',
+                answer: 'Yes! We offer flexible payment plans with installments spread over 3, 6, or 12 months depending on your booking date. A down payment of 30% is required at the time of booking, and the remaining balance can be paid in equal installments without any additional interest charges.'
+            },
+            {
+                question: 'What is the difference between Hajj and Umrah?',
+                answer: 'Hajj is a mandatory pilgrimage performed during specific days in the Islamic month of Dhul-Hijjah and includes multiple rituals at different sacred locations. Umrah is a voluntary pilgrimage that can be performed anytime throughout the year and is considered the lesser pilgrimage. Both are spiritually significant, but Hajj carries greater religious obligation for those who are physically and financially able.'
+            },
+            {
+                question: 'Are guides provided during the trip?',
+                answer: 'Yes, all our packages include experienced Islamic guides who are fluent in multiple languages. They will accompany you throughout your journey to explain the significance of each site, assist with rituals, and ensure your comfort and safety. Private guides are also available upon request.'
+            },
+            {
+                question: 'What if I need to cancel my booking?',
+                answer: 'We understand that circumstances can change. Cancellations made 60 days before travel receive a 90% refund. Cancellations between 30-60 days get a 70% refund, and those within 30 days receive a 50% refund. Travel insurance is recommended to cover unexpected cancellations.'
+            }
+        ];
+
+        function renderFAQ() {
+            const faqList = document.getElementById('faqList');
+            faqList.innerHTML = '';
+
+            faqData.forEach((item, index) => {
+                const faqItem = document.createElement('div');
+                faqItem.className = 'faq-item';
+                faqItem.dataset.index = index;
+
+                faqItem.innerHTML = `
+                    <div class="faq-question" onclick="toggleFAQ(${index})">
+                        <span>${item.question}</span>
+                        <div class="faq-icon">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            ${item.answer}
+                        </div>
+                    </div>
+                `;
+
+                faqList.appendChild(faqItem);
+            });
+        }
+
+        function toggleFAQ(index) {
+            const faqItem = document.querySelector(`[data-index="${index}"]`);
+
+            // If already open → close it
+            if (faqItem.classList.contains('active')) {
+                faqItem.classList.remove('active');
+                return;
+            }
+
+            // Close all
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+
+            // Open clicked
+            faqItem.classList.add('active');
+        }
+
+
+        function openWhatsApp() {
+            const phoneNumber = '919709701986'; // your number
+            const message = 'Assalamu Alaikum. I am interested in your Hajj & Umrah packages. Please share details.';
+
+            window.open(
+                `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`,
+                '_blank'
+            );
+        }
+
+
+        function openEnquiry() {
+            // Open enquiry form or modal
+            alert('Enquiry form would open here. Please contact us via WhatsApp for immediate assistance.');
+        }
+
+        // ✅ ADD THIS LINE
+        window.addEventListener('load', renderFAQ);
+    </script>
+
+</body>
+
+</html>

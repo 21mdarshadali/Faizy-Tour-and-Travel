@@ -1,0 +1,2181 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAIZY TOURS &amp; TRAVELS - Hajj &amp; Umrah Packages</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            box-sizing: border-box;
+        }
+
+        /* ============= TOP HEADER ============= */
+        .top-header {
+            background: linear-gradient(135deg, #1a5d3a 0%, #0d3a22 100%);
+            padding: 4px 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            box-shadow: none;
+            height: auto;
+        }
+
+        .header-left {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .header-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .header-item i {
+            color: #d4a574;
+            font-size: 1rem;
+        }
+
+        .header-item:hover {
+            color: #d4a574;
+            transform: translateY(-2px);
+        }
+
+        .header-item a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .header-item a:hover {
+            color: #d4a574;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .live-clock-header {
+            background: transparent;
+            border-radius: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            min-width: 100px;
+        }
+
+        .clock-time-header {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #d4a574;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 1px;
+        }
+
+        .clock-ampm-header {
+            font-size: 0.7rem;
+            color: #d4a574;
+            font-weight: 600;
+        }
+
+        .language-selector {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(212, 165, 116, 0.5);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .language-selector:hover {
+            background: rgba(212, 165, 116, 0.2);
+            border-color: #d4a574;
+        }
+
+        .language-selector option {
+            background: #1a5d3a;
+            color: white;
+        }
+
+        /* ============= RESPONSIVE ============= */
+        @media (max-width: 768px) {
+            .top-header {
+                padding: 0.8rem 1rem;
+                gap: 0.8rem;
+            }
+
+            .header-left {
+                gap: 1rem;
+            }
+
+            .header-item {
+                font-size: 0.8rem;
+            }
+
+            .language-selector {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.75rem;
+            }
+        }
+
+        /* ============= PRAYER TIMING BAR ============= */
+        .prayer-bar {
+            background: linear-gradient(90deg, #0d3a22 0%, #1a5d3a 50%, #0d3a22 100%);
+            padding: 5px 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .prayer-top-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            width: 100%;
+            ;
+        }
+
+        .prayer-status {
+            color: #d4a574;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            white-space: nowrap;
+            flex: 0 0 auto;
+        }
+
+        .prayer-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0rem;
+        }
+
+        .prayer-next {
+            font-size: 0.8rem;
+            white-space: nowrap;
+        }
+
+        .prayer-date-location {
+            font-size: 0.7rem;
+            color: white;
+            font-weight: 500;
+            text-align: left;
+            flex: 0 0 auto;
+            white-space: nowrap;
+        }
+
+        .prayer-times-container {
+            display: flex;
+            gap: 0.8rem;
+            align-items: center;
+            flex-wrap: nowrap;
+            justify-content: center;
+            flex: 1;
+        }
+
+        .prayer-item {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 0.3rem;
+            color: white;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            padding: 0.4rem 0.6rem;
+            border-radius: 12px;
+            background: rgba(212, 165, 116, 0.05);
+            border: 1px solid rgba(212, 165, 116, 0.15);
+        }
+
+        .prayer-item.next {
+            /* background: rgba(212, 165, 116, 0.25); */
+            border: 1.5px solid #d4a574;
+            transform: scale(1.08);
+            box-shadow: 0 4px 12px rgba(212, 165, 116, 0.2);
+
+        }
+
+        .prayer-name {
+            font-size: 0.75rem;
+            font-weight: 700;
+            opacity: 0.9;
+            letter-spacing: 0.5px;
+            color: black;
+        }
+
+        .prayer-time {
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.2rem;
+            color: #d4a574;
+        }
+
+        .prayer-time i {
+            font-size: 0.65rem;
+            opacity: 0.7;
+        }
+
+        .prayer-item.next .prayer-name {
+            color: #d4a574;
+            font-weight: 800;
+        }
+
+        .prayer-item.next .prayer-time {
+            color: #fff;
+            font-size: 0.95rem;
+        }
+
+        /* ============= RESPONSIVE ============= */
+        @media (max-width: 768px) {
+            .prayer-bar {
+                padding: 0.6rem 1rem;
+                gap: 1rem;
+            }
+
+            .prayer-times-container {
+                gap: 0.8rem;
+            }
+
+            .prayer-item {
+                font-size: 0.75rem;
+            }
+
+            .prayer-time {
+                font-size: 0.8rem;
+            }
+
+            .prayer-status {
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .prayer-bar {
+                padding: 0.5rem 0.8rem;
+                gap: 0.8rem;
+                min-height: 45px;
+            }
+
+            .prayer-times-container {
+                gap: 0.6rem;
+            }
+
+            .prayer-item {
+                font-size: 0.7rem;
+            }
+
+            .prayer-time {
+                font-size: 0.75rem;
+            }
+
+            .prayer-name {
+                font-size: 0.65rem;
+            }
+
+            .prayer-status {
+                font-size: 0.75rem;
+            }
+
+            .prayer-item.next {
+                padding: 0.3rem 0.6rem;
+                border-radius: 10px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .top-header {
+                flex-direction: column;
+                padding: 0.6rem;
+                gap: 0.6rem;
+            }
+
+            .header-left {
+                width: 100%;
+                justify-content: center;
+                gap: 0.8rem;
+                flex-wrap: wrap;
+            }
+
+            .header-right {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .header-item {
+                font-size: 0.75rem;
+            }
+
+            .language-selector {
+                padding: 0.4rem 0.6rem;
+                font-size: 0.7rem;
+            }
+        }
+
+        /* ============= STICKY NAVBAR ============= */
+        .sticky-navbar {
+            position: sticky;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #121111 0%, #0d3a22 100%);
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            width: 100%;
+        }
+
+        .navbar-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+        }
+
+        .navbar-section.left {
+            justify-content: flex-start;
+        }
+
+        .navbar-section.center {
+            justify-content: center;
+        }
+
+        .navbar-section.right {
+            justify-content: flex-end;
+        }
+
+        .navbar-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        .navbar-logo i {
+            color: #d4a574;
+            font-size: 1.5rem;
+        }
+
+        .navbar-menu {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .navbar-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .navbar-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #d4a574;
+            transition: width 0.3s ease;
+        }
+
+        .navbar-menu a:hover {
+            color: #d4a574;
+        }
+
+        .navbar-menu a:hover::after {
+            width: 100%;
+        }
+
+        .navbar-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-shrink: 0;
+            flex: 0 0 auto;
+        }
+
+        .navbar-btn {
+            padding: 0.4rem 1rem;
+            border: none;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            text-decoration: none;
+            height: fit-content;
+        }
+
+        .navbar-btn-call {
+            background: transparent;
+            border: 1.5px solid #d4a574;
+            color: #d4a574;
+        }
+
+        .navbar-btn-call:hover {
+            background: #d4a574;
+            color: #0d3a22;
+        }
+
+        .navbar-btn-book {
+            background: #d4a574;
+            color: #0d3a22;
+        }
+
+        .navbar-btn-book:hover {
+            background: #e8b86d;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(212, 165, 116, 0.4);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 0.4rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
+        }
+
+        /* Mobile Menu Dropdown */
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: #0d3a22;
+            flex-direction: column;
+            gap: 0;
+            padding: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        .mobile-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 0.8rem 1rem;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .mobile-menu a:hover {
+            background: rgba(212, 165, 116, 0.1);
+            color: #d4a574;
+        }
+
+        /* ============= RESPONSIVE ============= */
+        @media (max-width: 768px) {
+            .sticky-navbar {
+                padding: 0.8rem 1rem;
+                gap: 1rem;
+            }
+
+            .navbar-logo {
+                font-size: 1rem;
+            }
+
+            .navbar-logo i {
+                font-size: 1.2rem;
+            }
+
+            .navbar-menu {
+                display: none;
+            }
+
+            .navbar-actions {
+                gap: 0.5rem;
+            }
+
+            .navbar-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .mobile-menu {
+                position: fixed;
+                top: 56px;
+                left: 0;
+                right: 0;
+                background: #0d3a22;
+                max-height: 400px;
+                overflow-y: auto;
+                z-index: 999;
+            }
+
+            .mobile-menu a {
+                padding: 1rem;
+                border-bottom: 1px solid rgba(212, 165, 116, 0.1);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sticky-navbar {
+                padding: 0.6rem 0.8rem;
+                gap: 0.8rem;
+            }
+
+            .navbar-logo {
+                font-size: 0.95rem;
+            }
+
+            .navbar-logo i {
+                font-size: 1rem;
+            }
+
+            .navbar-btn {
+                padding: 0.5rem 0.8rem;
+                font-size: 0.75rem;
+            }
+
+            .navbar-btn span {
+                display: none;
+            }
+
+            .navbar-actions {
+                gap: 0.3rem;
+            }
+        }
+    </style>
+
+    <style>
+/* ============= GALLERY MAIN STYLES ============= */
+        .gallery-main-section {
+            background: linear-gradient(135deg, #f8f6f1 0%, #f5f3ee 100%);
+            padding: 4rem 2rem;
+            width: 100%;
+        }
+
+        .gallery-wrapper {
+            max-width: 1400px;
+            margin: 0 auto 5rem;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .gallery-main-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #0d3a22;
+            margin-bottom: 0.8rem;
+            letter-spacing: -1px;
+        }
+
+        .gallery-subtitle {
+            font-size: 1.1rem;
+            color: #555;
+            font-weight: 500;
+        }
+
+        /* ============= 1️⃣ MODERN GRID GALLERY ============= */
+        .modern-grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .grid-item {
+            position: relative;
+            height: 280px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+        }
+
+        .grid-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(13, 58, 34, 0.4) 0%, rgba(212, 165, 116, 0.2) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+        }
+
+        .grid-item:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .grid-item:hover::before {
+            opacity: 1;
+        }
+
+        .grid-item-1 { grid-column: 1 / 2; grid-row: 1 / 3; height: auto; min-height: 580px; }
+        .grid-item-2 { grid-column: 2 / 4; }
+
+        @media (max-width: 1024px) {
+            .grid-item-1 { grid-column: 1 / 2; grid-row: 1 / 2; height: 280px; }
+            .grid-item-2 { grid-column: 2 / 3; }
+        }
+
+        /* ============= 2️⃣ MASONRY GALLERY ============= */
+        .masonry-container {
+            column-count: 4;
+            column-gap: 1.5rem;
+            animation: slideUp 0.8s ease-out 0.1s both;
+        }
+
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+            height: 280px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+            position: relative;
+        }
+
+        .masonry-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(212, 165, 116, 0.3);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .masonry-item:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+        }
+
+        .masonry-item:hover::after {
+            opacity: 1;
+        }
+
+        @media (max-width: 1200px) {
+            .masonry-container {
+                column-count: 3;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .masonry-container {
+                column-count: 2;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .masonry-container {
+                column-count: 1;
+            }
+        }
+
+        /* ============= 3️⃣ CAROUSEL GALLERY ============= */
+        .carousel-container {
+            position: relative;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            animation: slideUp 0.8s ease-out 0.2s both;
+        }
+
+        .carousel-track {
+            display: flex;
+            height: 500px;
+            transition: transform 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+        }
+
+        .carousel-item {
+            min-width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(212, 165, 116, 0.9);
+            color: white;
+            border: none;
+            font-size: 1.8rem;
+            padding: 1rem 1.2rem;
+            cursor: pointer;
+            z-index: 10;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-prev {
+            left: 1.5rem;
+        }
+
+        .carousel-next {
+            right: 1.5rem;
+        }
+
+        .carousel-btn:hover {
+            background: #d4a574;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.8rem;
+            z-index: 10;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid white;
+        }
+
+        .carousel-dot.active {
+            background: #d4a574;
+            transform: scale(1.3);
+        }
+
+        @media (max-width: 768px) {
+            .carousel-track {
+                height: 350px;
+            }
+
+            .carousel-btn {
+                padding: 0.8rem 1rem;
+                font-size: 1.4rem;
+            }
+        }
+
+        /* ============= 4️⃣ FILTERABLE GALLERY ============= */
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            animation: slideUp 0.8s ease-out 0.3s both;
+        }
+
+        .filter-btn {
+            padding: 0.8rem 1.8rem;
+            border: 2px solid #d4a574;
+            background: transparent;
+            color: #0d3a22;
+            font-weight: 600;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #d4a574;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(212, 165, 116, 0.3);
+        }
+
+        .filterable-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item-filter {
+            height: 280px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+            position: relative;
+            animation: itemFade 0.6s ease-out;
+        }
+
+        @keyframes itemFade {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .gallery-item-filter.hidden {
+            display: none;
+        }
+
+        .gallery-item-filter:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ============= 5️⃣ FULLSCREEN LIGHTBOX GALLERY ============= */
+        .lightbox-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            animation: slideUp 0.8s ease-out 0.4s both;
+        }
+
+        .lightbox-thumbnail {
+            position: relative;
+            height: 250px;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+        }
+
+        .lightbox-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .lightbox-thumbnail:hover img {
+            transform: scale(1.12);
+        }
+
+        .thumbnail-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(13, 58, 34, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 5;
+        }
+
+        .thumbnail-overlay i {
+            font-size: 2.5rem;
+            color: #d4a574;
+            transform: scale(0.7);
+            transition: transform 0.4s ease;
+        }
+
+        .lightbox-thumbnail:hover .thumbnail-overlay {
+            opacity: 1;
+        }
+
+        .lightbox-thumbnail:hover .thumbnail-overlay i {
+            transform: scale(1.1);
+        }
+
+        /* LIGHTBOX MODAL */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .lightbox-modal.active {
+            display: flex;
+        }
+
+        .lightbox-image {
+            max-width: 90%;
+            max-height: 85%;
+            object-fit: contain;
+            border-radius: 10px;
+            animation: zoomIn 0.4s ease;
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: #d4a574;
+            color: white;
+            border: none;
+            font-size: 2.5rem;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10001;
+        }
+
+        .lightbox-close:hover {
+            background: #e8b86d;
+            transform: rotate(90deg) scale(1.1);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(212, 165, 116, 0.9);
+            color: white;
+            border: none;
+            font-size: 1.8rem;
+            padding: 1rem 1.2rem;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            z-index: 10001;
+        }
+
+        .lightbox-prev {
+            left: 2rem;
+        }
+
+        .lightbox-next {
+            right: 2rem;
+        }
+
+        .lightbox-nav:hover {
+            background: #d4a574;
+            transform: translateY(-50%) scale(1.15);
+        }
+
+        .lightbox-counter {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(212, 165, 116, 0.9);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            z-index: 10001;
+        }
+
+        @media (max-width: 768px) {
+            .lightbox-close {
+                width: 50px;
+                height: 50px;
+                font-size: 2rem;
+                top: 1rem;
+                right: 1rem;
+            }
+
+            .lightbox-nav {
+                padding: 0.8rem 1rem;
+                font-size: 1.4rem;
+            }
+
+            .lightbox-prev {
+                left: 1rem;
+            }
+
+            .lightbox-next {
+                right: 1rem;
+            }
+
+            .lightbox-image {
+                max-width: 95%;
+                max-height: 80%;
+            }
+        }
+
+    </style>
+
+
+    <style>
+        /* Footer Styles */
+        .footer-section {
+            background: linear-gradient(135deg, #1a5a3a 0%, #0f3d23 50%, #1a5a3a 100%);
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .footer-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                radial-gradient(circle at 20% 30%, rgba(212, 165, 116, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(100, 200, 140, 0.1) 0%, transparent 50%),
+                repeating-linear-gradient(45deg, transparent, transparent 100px, rgba(212, 165, 116, 0.02) 100px, rgba(212, 165, 116, 0.02) 200px);
+            pointer-events: none;
+        }
+
+        .footer-section .footer-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-section .footer-column {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .footer-section .footer-title {
+            font-size: 1.3rem;
+            font-weight: 900;
+            color: white;
+            letter-spacing: -0.5px;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+
+        .footer-section .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, #d4a574, transparent);
+            border-radius: 2px;
+        }
+
+        .footer-section .footer-text {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+            font-weight: 500;
+        }
+
+        .footer-section .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .footer-section .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(212, 165, 116, 0.15);
+            border: 2px solid rgba(212, 165, 116, 0.3);
+            border-radius: 50%;
+            color: #d4a574;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .footer-section .social-icon:hover {
+            background: #d4a574;
+            color: #1a5a3a;
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(212, 165, 116, 0.3);
+        }
+
+        .footer-section .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .footer-section .footer-links li {
+            transition: all 0.3s ease;
+        }
+
+        .footer-section .footer-links a {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .footer-section .footer-links a::before {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #d4a574;
+            transition: width 0.3s ease;
+        }
+
+        .footer-section .footer-links a:hover {
+            color: #d4a574;
+        }
+
+        .footer-section .footer-links a:hover::before {
+            width: 100%;
+        }
+
+        .footer-section .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+        }
+
+        .footer-section .contact-item i {
+            color: #d4a574;
+            font-size: 1.1rem;
+            margin-top: 0.2rem;
+            min-width: 20px;
+        }
+
+        .footer-section .footer-bottom {
+            background: rgba(10, 40, 20, 0.6);
+            backdrop-filter: blur(10px);
+            border-top: 2px solid rgba(212, 165, 116, 0.15);
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-section .footer-bottom-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-section .footer-bottom-content p {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 500;
+        }
+
+        .footer-section .footer-bottom-links {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-section .footer-bottom-links a {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .footer-section .footer-bottom-links a:hover {
+            color: #d4a574;
+        }
+
+        .footer-section .divider {
+            color: rgba(212, 165, 116, 0.3);
+            font-weight: 700;
+        }
+
+        @media (max-width: 1024px) {
+            .footer-section .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2.5rem;
+                padding: 3rem 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-section .footer-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 2.5rem 1.5rem;
+            }
+
+            .footer-section .footer-bottom-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 1.5rem;
+            }
+
+            .footer-section .footer-bottom-links {
+                justify-content: center;
+            }
+
+            .footer-section .footer-title {
+                font-size: 1.1rem;
+            }
+
+            .footer-section .footer-text {
+                font-size: 0.9rem;
+            }
+
+            .footer-section .social-icons {
+                gap: 0.8rem;
+            }
+
+            .footer-section .social-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-section .footer-container {
+                gap: 1.5rem;
+                padding: 2rem 1rem;
+            }
+
+            .footer-section .footer-title {
+                font-size: 1rem;
+            }
+
+            .footer-section .footer-text {
+                font-size: 0.85rem;
+            }
+
+            .footer-section .footer-links a {
+                font-size: 0.9rem;
+            }
+
+            .footer-section .contact-item {
+                font-size: 0.9rem;
+            }
+
+            .footer-section .footer-bottom {
+                padding: 1.5rem 1rem;
+            }
+
+            .footer-section .footer-bottom-content p {
+                font-size: 0.85rem;
+            }
+
+            .footer-section .footer-bottom-links a {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+    <style>
+        @view-transition {
+            navigation: auto;
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+</head>
+
+<body>
+
+    <!-- TOP HEADER (EMAIL SECTION) -->
+    <header class="top-header">
+        <div class="header-left">
+            <div class="header-item"><i class="fas fa-map-marker-alt"></i> <span>Lucknow, Uttar Pradesh, India</span>
+            </div>
+            <div class="header-item"><i class="fas fa-phone"></i> <a href="tel:+919709701986">+91 9709701986</a>
+            </div>
+            <div class="header-item"><i class="fas fa-envelope"></i> <a
+                    href="mailto:prince.ali9709@gmail.com">prince.ali9709@gmail.com</a>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="live-clock-header" id="liveClockHeader">
+                <div class="clock-time-header">
+                    00:00:00
+                </div>
+                <div class="clock-ampm-header">
+                    AM
+                </div>
+            </div>
+
+            <select class="language-selector" id="languageSelector">
+                <option value="en">🇬🇧 English</option>
+                <!--         <option value="hi">🇮🇳 हिंदी</option>
+                <option value="ur">🇵🇰 اردو</option>
+                <option value="ar">🇸🇦 العربية</option>
+           -->
+            </select>
+        </div>
+    </header>
+
+
+    <!-- PRAYER TIMING BAR -->
+    <section class="prayer-bar">
+        <div class="prayer-date-location" id="locationDate">
+            📍 Getting location...
+        </div>
+        <div class="prayer-times-container" id="prayerTimesContainer">
+            <!-- Prayer times will be populated by JavaScript -->
+        </div>
+        <div class="prayer-status"><i class="fas fa-mosque"></i>
+            <div class="prayer-info">
+                <div class="prayer-next" id="prayerStatus">
+                    Loading prayer times...
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STICKY NAVBAR -->
+    <nav class="sticky-navbar">
+        <div class="navbar-section left"><a href="index.html" class="navbar-logo"> <i class="fas fa-mosque"></i>
+                <span>FAIZY TOUR
+                    &amp; TRAVELS</span> </a>
+        </div>
+        <div class="navbar-section center">
+            <div class="navbar-menu">
+
+                <a href="index.html">Home</a>
+                <a href="aboutus.html">About</a>
+                <a href="packages.html">Packages</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+        <div class="navbar-section right">
+            <div class="navbar-actions"><a href="tel:+919709701986" class="navbar-btn navbar-btn-call"> <i
+                        class="fas fa-phone"></i> <span>Call Now</span> </a>
+
+                <button class="navbar-btn navbar-btn-book" id="bookNowBtn"
+                    onclick="window.location.href='contact.html'"> <i class="fas fa-paper-plane"></i> <span>Book
+                        Now</span> </button>
+            </div><button class="hamburger" id="hamburgerBtn"> <span></span> <span></span> <span></span> </button>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html">Home</a> <a href="aboutus.html">About</a> <a href="packages.html">Packages</a> <a
+                href="gallery.html">Gallery</a> <a href="contact.html">Contact</a> <a href="tel:+919709701986">📞 Call
+                Now</a> <a href="contact.html" id="mobileBookBtn">✈ Book Now</a>
+        </div>
+    </nav>
+
+
+    <!-- GALLERY SECTION -->
+    <section class="gallery-main-section"><!-- 1️⃣ MODERN GRID GALLERY -->
+        <div class="gallery-wrapper">
+            <div class="gallery-header">
+                <h2 class="gallery-main-title">🕋 The Sacred Journey Unfolds</h2>
+                <p class="gallery-subtitle">Experience unforgettable moments during Hajj and Umrah pilgrimage</p>
+            </div>
+            <div class="modern-grid-container">
+                <div class="grid-item grid-item-1"
+                    style="background-image: url('https://images.pexels.com/photos/34206859/pexels-photo-34206859.jpeg?w=600&amp;h=600&amp;fit=crop')">
+                </div>
+                <div class="grid-item grid-item-2"
+                    style="background-image: url('https://images.pexels.com/photos/30768739/pexels-photo-30768739.jpeg?w=600&amp;h=900&amp;fit=crop')">
+                </div>
+                <div class="grid-item grid-item-3"
+                    style="background-image: url('https://images.pexels.com/photos/34498854/pexels-photo-34498854.jpeg?w=600&amp;h=600&amp;fit=crop')">
+                </div>
+                <div class="grid-item grid-item-4"
+                    style="background-image: url('https://images.pexels.com/photos/18274181/pexels-photo-18274181.jpeg?w=600&amp;h=600&amp;fit=crop')">
+                </div>
+                <div class="grid-item grid-item-5"
+                    style="background-image: url('https://images.pexels.com/photos/34956761/pexels-photo-34956761.jpeg?w=600&amp;h=600&amp;fit=crop')">
+                </div>
+                <div class="grid-item grid-item-6"
+                    style="background-image: url('https://images.pexels.com/photos/35315915/pexels-photo-35315915.jpeg?w=600&amp;h=600&amp;fit=crop')">
+                </div>
+                <div class="grid-item grid-item-7"
+                    style="background-image: url('https://images.pexels.com/photos/15463931/pexels-photo-15463931.jpeg?w=600&amp;h=600&amp;fit=crop')">
+                </div>
+            </div>
+        </div><!-- 2️⃣ MASONRY GALLERY -->
+        <div class="gallery-wrapper">
+            <div class="gallery-header">
+                <h2 class="gallery-main-title">📿 Spiritual Moments in Masonry</h2>
+                <p class="gallery-subtitle">Beautiful scenes from our Hajj expeditions and Umrah groups</p>
+            </div>
+            <div class="masonry-container">
+                <div class="masonry-item"
+                    style="background-image: url('https://images.pexels.com/photos/13311030/pexels-photo-13311030.jpeg?w=400&amp;h=500&amp;fit=crop')">
+                </div>
+                <div class="masonry-item"
+                    style="background-image: url('https://images.pexels.com/photos/19603975/pexels-photo-19603975.jpeg?w=400&amp;h=350&amp;fit=crop')">
+                </div>
+                <div class="masonry-item"
+                    style="background-image: url('https://images.pexels.com/photos/4081675/pexels-photo-4081675.jpeg?w=400&amp;h=450&amp;fit=crop')">
+                </div>
+                <div class="masonry-item"
+                    style="background-image: url('https://images.pexels.com/photos/18996760/pexels-photo-18996760.jpeg?w=400&amp;h=380&amp;fit=crop')">
+                </div>
+                <div class="masonry-item"
+                    style="background-image: url('https://images.pexels.com/photos/11667465/pexels-photo-11667465.jpeg?w=400&amp;h=420&amp;fit=crop')">
+                </div>
+                <div class="masonry-item"
+                    style="background-image: url('https://images.pexels.com/photos/34956775/pexels-photo-34956775.jpeg?w=400&amp;h=390&amp;fit=crop')">
+                </div>
+                <div class="masonry-item"
+                    style="background-image: url('https://images.pexels.com/photos/2787826/pexels-photo-2787826.jpeg?w=400&amp;h=440&amp;fit=crop')">
+                </div>
+                <div class="masonry-item"
+                    style="background-image: url('https://images.pexels.com/photos/18274181/pexels-photo-18274181.jpeg?w=400&amp;h=360&amp;fit=crop')">
+                </div>
+            </div>
+        </div><!-- 3️⃣ CAROUSEL GALLERY -->
+        <div class="gallery-wrapper">
+            <div class="gallery-header">
+                <h2 class="gallery-main-title">🎠 Stories from the Holy Land</h2>
+                <p class="gallery-subtitle">Navigate through pilgrims' favorite memories</p>
+            </div>
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <div class="carousel-item"
+                        style="background-image: url('https://images.pexels.com/photos/26436662/pexels-photo-26436662.jpeg?w=800&amp;h=500&amp;fit=crop')">
+                    </div>
+                    <div class="carousel-item"
+                        style="background-image: url('https://images.pexels.com/photos/19603975/pexels-photo-19603975.jpeg?w=800&amp;h=500&amp;fit=crop')">
+                    </div>
+                    <div class="carousel-item"
+                        style="background-image: url('https://images.pexels.com/photos/34956775/pexels-photo-34956775.jpeg?w=800&amp;h=500&amp;fit=crop')">
+                    </div>
+                    <div class="carousel-item"
+                        style="background-image: url('https://images.pexels.com/photos/4118038/pexels-photo-4118038.jpeg?w=800&amp;h=500&amp;fit=crop')">
+                    </div>
+                    <div class="carousel-item"
+                        style="background-image: url('https://images.pexels.com/photos/4744570/pexels-photo-4744570.jpeg?w=800&amp;h=500&amp;fit=crop')">
+                    </div>
+                </div><button class="carousel-btn carousel-prev" id="carouselPrev">❮</button> <button
+                    class="carousel-btn carousel-next" id="carouselNext">❯</button>
+                <div class="carousel-dots" id="carouselDots"></div>
+            </div>
+        </div><!-- 4️⃣ FILTERABLE GALLERY -->
+        <div class="gallery-wrapper">
+            <div class="gallery-header">
+                <h2 class="gallery-main-title">🔍 Explore by Experience</h2>
+                <p class="gallery-subtitle">Filter photos by type and find what inspires you</p>
+            </div>
+            <div class="filter-buttons"><button class="filter-btn active" data-filter="all">All Moments</button> <button
+                    class="filter-btn" data-filter="hajj">Hajj Days</button> <button class="filter-btn"
+                    data-filter="umrah">Umrah Tours</button> <button class="filter-btn"
+                    data-filter="people">Pilgrims</button> <button class="filter-btn" data-filter="moments">Special
+                    Events</button>
+            </div>
+            <div class="filterable-gallery">
+                <div class="gallery-item-filter" data-category="hajj"
+                    style="background-image: url('https://images.pexels.com/photos/26436662/pexels-photo-26436662.jpeg?w=500&amp;h=500&amp;fit=crop')">
+                </div>
+                <div class="gallery-item-filter" data-category="umrah"
+                    style="background-image: url('https://images.pexels.com/photos/19603975/pexels-photo-19603975.jpeg?w=500&amp;h=500&amp;fit=crop')">
+                </div>
+                <div class="gallery-item-filter" data-category="people"
+                    style="background-image: url('https://images.pexels.com/photos/34956775/pexels-photo-34956775.jpeg?w=500&amp;h=500&amp;fit=crop')">
+                </div>
+                <div class="gallery-item-filter" data-category="moments"
+                    style="background-image: url('https://images.pexels.com/photos/4118038/pexels-photo-4118038.jpeg?w=500&amp;h=500&amp;fit=crop')">
+                </div>
+                <div class="gallery-item-filter" data-category="hajj"
+                    style="background-image: url('https://images.pexels.com/photos/4744570/pexels-photo-4744570.jpeg?w=500&amp;h=500&amp;fit=crop')">
+                </div>
+                <div class="gallery-item-filter" data-category="umrah"
+                    style="background-image: url('https://images.pexels.com/photos/26436662/pexels-photo-26436662.jpeg?w=500&amp;h=500&amp;fit=crop')">
+                </div>
+                <div class="gallery-item-filter" data-category="people"
+                    style="background-image: url('https://images.pexels.com/photos/19603975/pexels-photo-19603975.jpeg?w=500&amp;h=500&amp;fit=crop')">
+                </div>
+                <div class="gallery-item-filter" data-category="moments"
+                    style="background-image: url('https://images.pexels.com/photos/34956775/pexels-photo-34956775.jpeg?w=500&amp;h=500&amp;fit=crop')">
+                </div>
+            </div>
+        </div><!-- 5️⃣ FULLSCREEN LIGHTBOX GALLERY -->
+        <div class="gallery-wrapper">
+            <div class="gallery-header">
+                <h2 class="gallery-main-title">🌟 Divine Moments - Click to Explore</h2>
+                <p class="gallery-subtitle">View full-size photos from our pilgrim communities</p>
+            </div>
+            <div class="lightbox-gallery">
+                <div class="lightbox-thumbnail" onclick="openLightbox(0)"><img
+                        src="https://images.pexels.com/photos/26436662/pexels-photo-26436662.jpeg?w=300&amp;h=300&amp;fit=crop"
+                        alt="Kaaba View" loading="lazy"
+                        onerror="console.error('Image failed:', this.src); this.style.background='#e5e7eb';">
+                    <div class="thumbnail-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="lightbox-thumbnail" onclick="openLightbox(1)"><img
+                        src="https://images.pexels.com/photos/19603975/pexels-photo-19603975.jpeg?w=300&amp;h=300&amp;fit=crop"
+                        alt="Prayer Hall" loading="lazy"
+                        onerror="console.error('Image failed:', this.src); this.style.background='#e5e7eb';">
+                    <div class="thumbnail-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="lightbox-thumbnail" onclick="openLightbox(2)"><img
+                        src="https://images.pexels.com/photos/34956775/pexels-photo-34956775.jpeg?w=300&amp;h=300&amp;fit=crop"
+                        alt="Pilgrims Gathering" loading="lazy"
+                        onerror="console.error('Image failed:', this.src); this.style.background='#e5e7eb';">
+                    <div class="thumbnail-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="lightbox-thumbnail" onclick="openLightbox(3)"><img
+                        src="https://images.pexels.com/photos/4118038/pexels-photo-4118038.jpeg?w=300&amp;h=300&amp;fit=crop"
+                        alt="Group Photo" loading="lazy"
+                        onerror="console.error('Image failed:', this.src); this.style.background='#e5e7eb';">
+                    <div class="thumbnail-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="lightbox-thumbnail" onclick="openLightbox(4)"><img
+                        src="https://images.pexels.com/photos/4744570/pexels-photo-4744570.jpeg?w=300&amp;h=300&amp;fit=crop"
+                        alt="Spiritual Moment" loading="lazy"
+                        onerror="console.error('Image failed:', this.src); this.style.background='#e5e7eb';">
+                    <div class="thumbnail-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="lightbox-thumbnail" onclick="openLightbox(5)"><img
+                        src="https://images.pexels.com/photos/26436662/pexels-photo-26436662.jpeg?w=300&amp;h=300&amp;fit=crop"
+                        alt="Sunset Scene" loading="lazy"
+                        onerror="console.error('Image failed:', this.src); this.style.background='#e5e7eb';">
+                    <div class="thumbnail-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="lightbox-thumbnail" onclick="openLightbox(6)"><img
+                        src="https://images.pexels.com/photos/14958540/pexels-photo-14958540.jpeg?w=300&amp;h=300&amp;fit=crop"
+                        alt="Journey Moment" loading="lazy"
+                        onerror="console.error('Image failed:', this.src); this.style.background='#e5e7eb';">
+                    <div class="thumbnail-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="lightbox-thumbnail" onclick="openLightbox(7)"><img
+                        src="https://images.pexels.com/photos/19603975/pexels-photo-19603975.jpeg?w=300&amp;h=300&amp;fit=crop"
+                        alt="Celebration" loading="lazy"
+                        onerror="console.error('Image failed:', this.src); this.style.background='#e5e7eb';">
+                    <div class="thumbnail-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- LIGHTBOX MODAL -->
+    <div class="lightbox-modal" id="lightboxModal"><button class="lightbox-close" onclick="closeLightbox()">×</button>
+        <button class="lightbox-nav lightbox-prev" onclick="prevLightbox()">❮</button> <img class="lightbox-image"
+            id="lightboxImage" src="" alt="Gallery Image" loading="lazy"> <button class="lightbox-nav lightbox-next"
+            onclick="nextLightbox()">❯</button>
+        <div class="lightbox-counter" id="lightboxCounter"></div>
+    </div>
+
+
+
+
+    <!-- FOOTER -->
+    <footer class="footer-section">
+        <div class="footer-container"><!-- About Section -->
+            <div class="footer-column">
+                <h3 class="footer-title">About Us</h3>
+                <p class="footer-text">We are dedicated to making your Hajj and Umrah journey memorable with
+                    professional guidance and spiritual support.</p>
+                <div class="social-icons"><a href="#" class="social-icon" title="Facebook"><i
+                            class="fab fa-facebook-f"></i></a> <a href="#" class="social-icon" title="Twitter"><i
+                            class="fab fa-twitter"></i></a> <a href="#" class="social-icon" title="Instagram"><i
+                            class="fab fa-instagram"></i></a>
+
+                    <a href="javascript:void(0)" onclick="openWhatsApp()" class="social-icon" title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+
+                </div>
+            </div><!-- Quick Links -->
+            <div class="footer-column">
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="aboutus.html">About Us</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div><!-- Services -->
+            <div class="footer-column">
+                <h3 class="footer-title">Services</h3>
+                <ul class="footer-links">
+                    <li><a href="#umrah">Umrah Packages</a></li>
+                    <li><a href="#hajj">Hajj Packages</a></li>
+                    <li><a href="#visa">Visa Assistance</a></li>
+                    <li><a href="#guide">Expert Guides</a></li>
+                </ul>
+            </div><!-- Contact Info -->
+            <div class="footer-column">
+                <h3 class="footer-title">Contact Info</h3>
+                <div class="contact-item"><i class="fas fa-map-marker-alt"></i> <span>Lucknow, Uttar Pradesh,
+                        India</span>
+                </div>
+                <div class="contact-item"><i class="fas fa-phone"></i> <span>+91 9709701986</span>
+                </div>
+                <div class="contact-item"><i class="fas fa-envelope"></i> <span>prince.ali9709@gmail.com</span>
+                </div>
+            </div>
+        </div><!-- Bottom Section -->
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p>© 2026 Hajj &amp; Umrah Services. All rights reserved.</p>
+                <div class="footer-bottom-links"><a href="#privacy">Privacy Policy</a> <span class="divider">|</span> <a
+                        href="#terms">Terms &amp; Conditions</a> <span class="divider">|</span> <a
+                        href="#sitemap">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Update live clock every second
+        function updateClock() {
+            const now = new Date();
+            let hours = now.getHours();
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+
+            hours = hours % 12 || 12;
+            hours = String(hours).padStart(2, '0');
+
+            document.querySelector('.clock-time-header').textContent = `${hours}:${minutes}:${seconds}`;
+            document.querySelector('.clock-ampm-header').textContent = ampm;
+        }
+
+        // Update clock immediately and every second
+        updateClock();
+        setInterval(updateClock, 1000);
+
+        document.getElementById('languageSelector').addEventListener('change', function (e) {
+            const lang = e.target.value;
+            updateLanguage(lang);
+        });
+
+        // Get user's current location and fetch prayer times
+        function getPrayerTimes() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const { latitude, longitude } = position.coords;
+                        fetchLocationName(latitude, longitude);
+                        fetchPrayerTimesAPI(latitude, longitude);
+                    },
+                    (error) => {
+                        console.log('Location access denied, using Lucknow default');
+                        displayLocationDate('Lucknow, UP', 26.8467, 80.9462);
+                        fetchPrayerTimesAPI(26.8467, 80.9462);
+                    }
+                );
+            } else {
+                console.log('Geolocation not supported, using Lucknow default');
+                displayLocationDate('Lucknow, UP', 26.8467, 80.9462);
+                fetchPrayerTimesAPI(26.8467, 80.9462);
+            }
+        }
+
+        // Fetch location name from coordinates using reverse geocoding
+        function fetchLocationName(latitude, longitude) {
+            fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`)
+                .then(response => response.json())
+                .then(data => {
+                    const city = data.address.city || data.address.town || data.address.village || 'Unknown Location';
+                    const state = data.address.state || '';
+                    const locationName = state ? `${city}, ${state}` : city;
+                    displayLocationDate(locationName, latitude, longitude);
+                })
+                .catch(error => {
+                    console.log('Could not fetch location name');
+                    displayLocationDate('Your Location', latitude, longitude);
+                });
+        }
+
+        // Display date and location
+        function displayLocationDate(locationName, latitude, longitude) {
+            const today = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const dateString = today.toLocaleDateString('en-US', options);
+
+            document.getElementById('locationDate').innerHTML =
+                `📍 ${locationName} | 📅 ${dateString}`;
+        }
+
+        // Fetch prayer times from Aladhan API (free, no key needed)
+        function fetchPrayerTimesAPI(latitude, longitude) {
+            const today = new Date();
+            const date = `${today.getDate()}-${today.getMonth() + 1}-${today.getFullYear()}`;
+
+            fetch(`https://api.aladhan.com/v1/timings/${date}?latitude=${latitude}&longitude=${longitude}&method=2`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.code === 200) {
+                        displayPrayerTimes(data.data.timings);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching prayer times:', error);
+                    displayPrayerTimes({
+                        Fajr: '05:30',
+                        Dhuhr: '12:30',
+                        Asr: '16:45',
+                        Maghrib: '18:45',
+                        Isha: '20:15'
+                    });
+                });
+        }
+
+        function displayPrayerTimes(timings) {
+
+            const prayers = [
+                { name: 'Fajr', time: timings.Fajr },
+                { name: 'Zuhr', time: timings.Dhuhr },
+                { name: 'Asr', time: timings.Asr },
+                { name: 'Maghrib', time: timings.Maghrib },
+                { name: 'Isha', time: timings.Isha }
+            ];
+
+            const container = document.getElementById('prayerTimesContainer');
+            container.innerHTML = '';
+
+            const now = new Date();
+            let nextPrayerFound = false;
+            let prayerElements = [];
+
+            prayers.forEach((prayer) => {
+
+                const prayerTime = new Date();
+                const [hours, minutes] = prayer.time.split(':');
+
+                prayerTime.setHours(parseInt(hours), parseInt(minutes), 0);
+
+                const isPastPrayer = now > prayerTime;
+                const isNextPrayer = !isPastPrayer && !nextPrayerFound;
+
+                if (isNextPrayer) nextPrayerFound = true;
+
+                const prayerDiv = document.createElement('div');
+                prayerDiv.className = `prayer-item ${isNextPrayer ? 'next' : ''}`;
+
+                prayerDiv.innerHTML = `
+            <div class="prayer-name">${prayer.name}</div>
+            <div class="prayer-time">${prayer.time}</div>
+        `;
+
+                container.appendChild(prayerDiv);
+                prayerElements.push(prayerDiv);
+            });
+
+            /* ⭐ FIX: if all prayers passed → highlight Fajr */
+            if (!nextPrayerFound && prayerElements.length > 0) {
+                prayerElements[0].classList.add("next");
+            }
+
+            /* Status text */
+            const statusText = document.getElementById('prayerStatus');
+
+            const nextPrayer = prayers.find(p => {
+                const pt = new Date();
+                const [h, m] = p.time.split(':');
+                pt.setHours(parseInt(h), parseInt(m), 0);
+                return now <= pt;
+            });
+
+            if (nextPrayer) {
+                statusText.textContent = `Next Prayer: ${nextPrayer.name} at ${nextPrayer.time}`;
+            } else {
+                statusText.textContent = `Next Prayer: Fajr at ${prayers[0].time}`;
+            }
+        }
+
+
+        // Load prayer times on page load
+        window.addEventListener('load', getPrayerTimes);
+
+        // Dynamic typing for "Hajj & Umrah with FAIZY TOURS"
+        const dynamicText = "Hajj & Umrah with FAIZY TOURS";
+        let dynamicIndex = 0;
+        let isDynamicDeleting = false;
+        let dynamicTypingSpeed = 80;
+        let dynamicDeleteSpeed = 50;
+        let dynamicPauseDuration = 3000;
+        let isDynamicPaused = false;
+
+        function typeDynamicText() {
+            const titleElement = document.getElementById('dynamicTitle');
+
+            if (!isDynamicPaused && !isDynamicDeleting && dynamicIndex < dynamicText.length) {
+                // Typing
+                titleElement.textContent += dynamicText[dynamicIndex];
+                dynamicIndex++;
+                setTimeout(typeDynamicText, dynamicTypingSpeed);
+            } else if (!isDynamicDeleting && dynamicIndex === dynamicText.length && !isDynamicPaused) {
+                // Pause at end
+                isDynamicPaused = true;
+                setTimeout(() => {
+                    isDynamicPaused = false;
+                    isDynamicDeleting = true;
+                    typeDynamicText();
+                }, dynamicPauseDuration);
+            } else if (isDynamicDeleting && dynamicIndex > 0 && !isDynamicPaused) {
+                // Deleting
+                titleElement.textContent = dynamicText.substring(0, dynamicIndex - 1);
+                dynamicIndex--;
+                setTimeout(typeDynamicText, dynamicDeleteSpeed);
+            } else if (isDynamicDeleting && dynamicIndex === 0 && !isDynamicPaused) {
+                // Start typing again
+                isDynamicDeleting = false;
+                setTimeout(typeDynamicText, 500);
+            }
+        }
+
+        // Start dynamic typing animation when page loads
+        setTimeout(() => {
+            typeDynamicText();
+        }, 500);
+
+        function updateLanguage(lang) {
+            const translations = {
+                en: {
+                    location: 'Lucknow, Uttar Pradesh, India',
+                    phone: '+91 9709701986',
+                    email: 'prince.ali9709@gmail.com'
+                },
+                hi: {
+                    location: 'लुकनौ, उत्तर प्रदेश, भारत',
+                    phone: '+91 9709701986',
+                    email: 'prince.ali9709@gmail.com'
+                },
+                ur: {
+                    location: 'لکھنؤ، اترپردیش، باریت',
+                    phone: '+91 9709701986',
+                    email: 'prince.ali9709@gmail.com'
+                },
+                ar: {
+                    location: 'لكھنؤ، أوتار بریڈش، الهنڈ',
+                    phone: '+91 9709701986',
+                    email: 'prince.ali9709@gmail.com'
+                }
+            };
+
+            const t = translations[lang];
+            document.querySelectorAll('.header-item')[0].innerHTML = `<i class="fas fa-map-marker-alt"></i><span>${t.location}</span>`;
+            document.querySelectorAll('.header-item')[1].innerHTML = `<i class="fas fa-phone"></i><a href="tel:+919709701986">${t.phone}</a>`;
+            document.querySelectorAll('.header-item')[2].innerHTML = `<i class="fas fa-envelope"></i><a href="mailto:prince.ali9709@gmail.com">${t.email}</a>`;
+        }
+
+        // Hero Banner Buttons
+        document.querySelectorAll('.hero-btn-primary')[0].addEventListener('click', function () {
+            window.location.href = "contact.html";
+        });
+
+        document.querySelectorAll('.hero-btn-secondary')[0].addEventListener('click', function () {
+            window.location.href = 'tel:+919709701986';
+        });
+
+        // Mobile Book Now Button
+        document.getElementById('bookNowBtn').addEventListener('click', function () {
+            window.location.href = "contact.html";
+        });
+
+        document.getElementById('mobileBookBtn').addEventListener('click', function (e) {
+            e.preventDefault();
+            window.location.href = "contact.html";
+        });
+
+        // Why Choose Us Section - removed button
+
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburgerBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburger.addEventListener('click', function () {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', function () {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+
+
+
+    </script>
+
+
+    <script>
+        // CAROUSEL FUNCTIONALITY
+        let currentCarouselIndex = 0;
+        const carouselTrack = document.querySelector('.carousel-track');
+        const carouselItems = document.querySelectorAll('.carousel-item');
+        const carouselDotsContainer = document.getElementById('carouselDots');
+
+        function initCarouselDots() {
+            carouselItems.forEach((_, index) => {
+                const dot = document.createElement('div');
+                dot.className = `carousel-dot ${index === 0 ? 'active' : ''}`;
+                dot.onclick = () => goToSlide(index);
+                carouselDotsContainer.appendChild(dot);
+            });
+        }
+
+        function updateCarousel() {
+            carouselTrack.style.transform = `translateX(-${currentCarouselIndex * 100}%)`;
+            document.querySelectorAll('.carousel-dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentCarouselIndex);
+            });
+        }
+
+        function nextSlide() {
+            currentCarouselIndex = (currentCarouselIndex + 1) % carouselItems.length;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentCarouselIndex = (currentCarouselIndex - 1 + carouselItems.length) % carouselItems.length;
+            updateCarousel();
+        }
+
+        function goToSlide(index) {
+            currentCarouselIndex = index;
+            updateCarousel();
+        }
+
+        document.getElementById('carouselNext').addEventListener('click', nextSlide);
+        document.getElementById('carouselPrev').addEventListener('click', prevSlide);
+        initCarouselDots();
+
+        // FILTERABLE GALLERY
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const filterItems = document.querySelectorAll('.gallery-item-filter');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                const filter = button.getAttribute('data-filter');
+
+                filterItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.classList.remove('hidden');
+                        setTimeout(() => {
+                            item.style.animation = 'itemFade 0.6s ease-out';
+                        }, 0);
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        // LIGHTBOX FUNCTIONALITY
+        const lightboxImages = [
+            '',
+            'https://images.pexels.com/photos/26436662/pexels-photo-26436662.jpeg?w=1200&h=800&fit=crop',
+            'https://images.pexels.com/photos/26436663/pexels-photo-26436663.jpeg?w=1200&h=800&fit=crop',
+            'https://images.pexels.com/photos/26436664/pexels-photo-26436664.jpeg?w=1200&h=800&fit=crop',
+            'https://images.pexels.com/photos/26436665/pexels-photo-26436665.jpeg?w=1200&h=800&fit=crop',
+            'https://images.pexels.com/photos/2779975/pexels-photo-2779975.jpeg?w=1200&h=800&fit=crop',
+            'https://images.pexels.com/photos/1958815/pexels-photo-1958815.jpeg?w=1200&h=800&fit=crop',
+            'https://images.pexels.com/photos/34956775/pexels-photo-34956775.jpeg?w=1200&h=800&fit=crop'
+        ];
+
+        let currentLightboxIndex = 0;
+
+        function openLightbox(index) {
+            currentLightboxIndex = index;
+            const modal = document.getElementById('lightboxModal');
+            const image = document.getElementById('lightboxImage');
+            image.src = lightboxImages[index];
+            modal.classList.add('active');
+            updateLightboxCounter();
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const modal = document.getElementById('lightboxModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function nextLightbox() {
+            currentLightboxIndex = (currentLightboxIndex + 1) % lightboxImages.length;
+            document.getElementById('lightboxImage').src = lightboxImages[currentLightboxIndex];
+            updateLightboxCounter();
+        }
+
+        function prevLightbox() {
+            currentLightboxIndex = (currentLightboxIndex - 1 + lightboxImages.length) % lightboxImages.length;
+            document.getElementById('lightboxImage').src = lightboxImages[currentLightboxIndex];
+            updateLightboxCounter();
+        }
+
+        function updateLightboxCounter() {
+            document.getElementById('lightboxCounter').textContent = `${currentLightboxIndex + 1} / ${lightboxImages.length}`;
+        }
+
+        document.addEventListener('keydown', (e) => {
+            const modal = document.getElementById('lightboxModal');
+            if (!modal.classList.contains('active')) return;
+            if (e.key === 'ArrowRight') nextLightbox();
+            if (e.key === 'ArrowLeft') prevLightbox();
+            if (e.key === 'Escape') closeLightbox();
+        });
+</script>
+</body>
+
+</html>
